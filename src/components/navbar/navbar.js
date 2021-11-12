@@ -1,0 +1,54 @@
+import classes from './navbar.module.css';
+import { Fragment, useState } from 'react';
+
+import Burger from '../burger/burger';
+import Backdrop from '../backdrop/backdrop';
+
+const Navbar = () => {
+  const [isShow, setIsShow] = useState(false);
+
+  const showMoreHandler = () => {
+    setIsShow(prevState => !prevState);
+    console.log(isShow);
+  };
+
+
+  return (
+    <Fragment>
+    {isShow && <Backdrop onClick={showMoreHandler}/>}
+    <nav className={classes.nav}>
+      <div className={classes.container}>
+        <div className={classes.logoContainer}>
+          <Burger className={classes.burger} onClick={showMoreHandler} isShow={isShow} />
+          <p><a href="/golabel">finder.plant.tools</a></p>
+          <ul>
+            <li className={classes.info}>Version 1.0</li>
+          </ul>
+          <ul>
+            <li className={classes.info}>Github</li>
+          </ul>
+        </div>
+
+        <div className={[classes.buttonsContainer, isShow ? null:classes.visable].join(' ')} id={classes.main}>
+          <ul>
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#how">How to use?</a>
+            </li>
+            <li>
+              <a href="#">Abraidopsis Features</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </Fragment>
+  );
+};
+
+export default Navbar;

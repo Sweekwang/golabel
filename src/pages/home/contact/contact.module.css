@@ -1,0 +1,55 @@
+.contact{
+    display: flex;
+    padding: 80px 0;
+}
+
+.contactContainer{
+    position: relative;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+
+.contactInfoContainer{
+    width: 80%;
+}
+
+.contactInfoContainer h3{
+    font-size: 28px;
+    margin: 0cm;
+    margin-top: 24px;
+
+}
+
+
+.mainText{
+    font-weight: 600;
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+
+.twitterContainer{
+    position: relative;
+    width: 50%;
+    right: 0;
+}
+
+@media screen and (max-width: 750px) {
+    .contact{
+        flex-direction: column;
+    }
+
+    .twitterContainer{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 42px;
+    }
+
+    .contactContainer{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,31 @@
+.errorDiv{
+    background-color: rgb(255, 143, 143);
+    padding: 14px;
+}
+
+.errorDiv2{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.errorDiv2 p{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+.errorDiv2 a{
+    background-color: rgb(66, 125, 234);
+    padding: 12px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+}
+
+.errorDiv2 a:hover{
+    background-color: cornflowerblue;
+    text-decoration: none;
+}

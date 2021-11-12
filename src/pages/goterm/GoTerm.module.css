@@ -1,0 +1,109 @@
+.networkH2 {
+    margin: 0;
+}
+
+.featureH2{
+    margin: 0;
+    padding-top: 80px;
+}
+.topinfodiv{
+    display: flex;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.topinfodivText{
+    width: 20%;
+}
+
+.goDiv{
+    padding: 40px 20px;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.goDiv p {
+    margin: 0;
+    padding: 0;
+}
+
+.goDiv h1 {
+    margin: 0 0 8px 0;
+    padding: 6px 0 8px 0;
+    border-bottom: 1px solid rgb(124, 124, 124);
+}
+
+.goTable{
+    box-sizing: border-box;
+    position: relative;
+    padding: 20px 20px;
+    overflow: scroll;
+    border: 1px solid black;
+    max-height: 820px;
+}
+
+.goTable table{
+    border: none;
+    border-collapse: collapse;
+    min-width: 100%;
+}
+
+.goTable td{
+    padding: 8px 14px;
+    line-height: 1.6;
+}
+
+.goTable th {
+    text-align: left;
+    padding: 18px 14px;
+    resize: both;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    border-collapse: collapse;
+}
+th:nth-child(1),
+td:nth-child(1) {
+    max-width: 10px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    min-width: 30px;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    max-width: 380px;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    max-width: 380px;
+}
+
+.fullscreen{
+    width: 100%;
+    height: 100%;
+}
+
+.section2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section2 button{
+    background-color: #008CBA;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
