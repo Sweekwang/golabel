@@ -25,7 +25,7 @@ const Navbar = () => {
             <li className={classes.info}>Version 1.0</li>
           </ul>
           <ul>
-            <li className={classes.info}>Github</li>
+            <li className={classes.info}><a href="https://github.com/Sweekwang/golabel/tree/master" target="_blank">Github</a></li>
           </ul>
         </div>
 
