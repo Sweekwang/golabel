@@ -43,14 +43,13 @@ const Home = () => {
             <Layout className={classes.searchContainer}>
                 <form className={classes.searchForm} onSubmit={submitHandler}>
                     <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> <br/>
-                    <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0000003, E-GEO-39217_1a_up" ref ={inputRef}>
+                    <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0000003, E-GEO-39217_1a_up" ref ={inputRef}></input>
                     <datalist id="list">
                         <option key="Test 1" value="Test 1"/>
                         <option key="Test 1" value="Test 1"/>
-                        <option key="E-GEO-39217_1a_up_fi" value="E-GEO-39217_1a_up_fi"/>
+                        <option key="E-GEO-39217_1a_up_fi" value=""/>
                 
                     </datalist>
-                    </input>
                     <input className={classes.searchSubmit} type="submit" value="Submit"></input>
                 </form>
             </Layout>
