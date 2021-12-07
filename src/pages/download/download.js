@@ -37,7 +37,7 @@ const Download = () => {
                     </div>
 
                     <div className={classes.row}>
-                        <p className={classes.row1}>Others Models</p>
+                        <p className={classes.row1}>Others Model</p>
                         <p className={classes.row1}>Filename.zip</p>
                         <p className={classes.row2}>Description</p>
                         <p className={classes.row3}>Download</p>
