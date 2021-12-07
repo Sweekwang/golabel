@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/golabel/static/css/main.32eb5ab8.chunk.css",
-    "main.js": "/golabel/static/js/main.f1279a07.chunk.js",
-    "main.js.map": "/golabel/static/js/main.f1279a07.chunk.js.map",
-    "runtime-main.js": "/golabel/static/js/runtime-main.5e410e4c.js",
-    "runtime-main.js.map": "/golabel/static/js/runtime-main.5e410e4c.js.map",
-    "static/js/2.a958d3f6.chunk.js": "/golabel/static/js/2.a958d3f6.chunk.js",
-    "static/js/2.a958d3f6.chunk.js.map": "/golabel/static/js/2.a958d3f6.chunk.js.map",
-    "static/js/3.35ecf11c.chunk.js": "/golabel/static/js/3.35ecf11c.chunk.js",
-    "static/js/3.35ecf11c.chunk.js.map": "/golabel/static/js/3.35ecf11c.chunk.js.map",
+    "main.css": "/golabel/static/css/main.2a96ff17.chunk.css",
+    "main.js": "/golabel/static/js/main.a7a7c8e0.chunk.js",
+    "main.js.map": "/golabel/static/js/main.a7a7c8e0.chunk.js.map",
+    "runtime-main.js": "/golabel/static/js/runtime-main.7714ff8a.js",
+    "runtime-main.js.map": "/golabel/static/js/runtime-main.7714ff8a.js.map",
+    "static/js/2.5a44dfb3.chunk.js": "/golabel/static/js/2.5a44dfb3.chunk.js",
+    "static/js/2.5a44dfb3.chunk.js.map": "/golabel/static/js/2.5a44dfb3.chunk.js.map",
+    "static/js/3.a035cd27.chunk.js": "/golabel/static/js/3.a035cd27.chunk.js",
+    "static/js/3.a035cd27.chunk.js.map": "/golabel/static/js/3.a035cd27.chunk.js.map",
     "index.html": "/golabel/index.html",
-    "static/css/main.32eb5ab8.chunk.css.map": "/golabel/static/css/main.32eb5ab8.chunk.css.map",
-    "static/js/2.a958d3f6.chunk.js.LICENSE.txt": "/golabel/static/js/2.a958d3f6.chunk.js.LICENSE.txt",
+    "static/css/main.2a96ff17.chunk.css.map": "/golabel/static/css/main.2a96ff17.chunk.css.map",
+    "static/js/2.5a44dfb3.chunk.js.LICENSE.txt": "/golabel/static/js/2.5a44dfb3.chunk.js.LICENSE.txt",
     "static/media/contact.c83d3199.svg": "/golabel/static/media/contact.c83d3199.svg",
     "static/media/learning.6843d173.png": "/golabel/static/media/learning.6843d173.png",
     "static/media/like.cb0d2295.svg": "/golabel/static/media/like.cb0d2295.svg",
     "static/media/search.3cc7ac40.png": "/golabel/static/media/search.3cc7ac40.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5e410e4c.js",
-    "static/js/2.a958d3f6.chunk.js",
-    "static/css/main.32eb5ab8.chunk.css",
-    "static/js/main.f1279a07.chunk.js"
+    "static/js/runtime-main.7714ff8a.js",
+    "static/js/2.5a44dfb3.chunk.js",
+    "static/css/main.2a96ff17.chunk.css",
+    "static/js/main.a7a7c8e0.chunk.js"
   ]
 }
