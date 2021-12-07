@@ -14,10 +14,12 @@ const GoTerm = () => {
   const [isError, setIsError] = useState(false);
 
   const [label, setLabel] = useState([]);
+  const [labelDescrtiopn, setLabelDescrtion] = useState("-");
   const [featuresType, setFeaturesType] = useState([]);
   const [features, setFeatures] = useState([]);
   const [featuresDescription, setFeaturesDescription] = useState([]);
   const [scores, setScores] = useState([]);
+  const [oob_f1, setoob_f1] = useState("-");
   const [network, setNetwork] = useState(null);
 
   const params = useParams();
@@ -50,6 +52,8 @@ const GoTerm = () => {
         setScores(data.scores);
         setLabel(data.terms);
         setIsLoading(false);
+        setLabelDescrtion(data.termsDescription[0]);
+        setoob_f1(data.model.oob_f1);
         setNetwork(
           [
             { data: { id: '1', label: 'Node 1' }},
@@ -100,6 +104,8 @@ const GoTerm = () => {
           <div className={classes.goDiv}>
             <p>Term:</p>
             <h1>{label}</h1>
+            <p><b>Description</b>: {labelDescrtiopn}</p>
+            <p><b>oob_f1</b>: {oob_f1}</p>
           </div>
           { (network !== null) &&
 
