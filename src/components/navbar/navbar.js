@@ -41,6 +41,9 @@ const Navbar = () => {
               <a href="#">Abraidopsis Features</a>
             </li>
             <li>
+              <a href="/golabel/download">Download</a>
+            </li>
+            <li>
               <a href="#contact">Contact</a>
             </li>
           </ul>

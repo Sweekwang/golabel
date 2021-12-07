@@ -7,6 +7,7 @@ import Home from './pages/home/home';
 import GoTerm from './pages/goterm/GoTerm';
 import Information from './pages/information/information';
 import Footer from './components/footer/footer';
+import Download from './pages/download/home';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/golabel"><Home/></Route>
         <Route exact path="/golabel/goterm/:goId"><GoTerm/></Route>
         <Route exact path="/golabel/information/:info"><Information/></Route>
+        <Route exact path="/golabel/download"><Download/></Route>
         <Route exact path="*"><Redirect to="golabel"/></Route>
       </Switch>
       </BrowserRouter>
