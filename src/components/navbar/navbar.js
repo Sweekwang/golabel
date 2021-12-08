@@ -22,7 +22,7 @@ const Navbar = () => {
           <Burger className={classes.burger} onClick={showMoreHandler} isShow={isShow} />
           <p><a href="/golabel">finder.plant.tools</a></p>
           <ul>
-            <li className={classes.info}><a href="/golabel/release" target="_blank">Release</a></li>
+            <li className={classes.info}><a href="/golabel/release" >Release</a></li>
           </ul>
           <ul>
             <li className={classes.info}><a href="https://github.com/Sweekwang/golabel/tree/master" target="_blank">Github</a></li>
