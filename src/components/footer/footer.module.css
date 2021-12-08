@@ -19,3 +19,8 @@
     text-align: center;
     color: rgb(178, 178, 178);
 }
+
+.content{
+    display: flex;
+    gap: 80px;
+}

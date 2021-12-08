@@ -22,7 +22,7 @@ const Navbar = () => {
           <Burger className={classes.burger} onClick={showMoreHandler} isShow={isShow} />
           <p><a href="/golabel">finder.plant.tools</a></p>
           <ul>
-            <li className={classes.info}>Version 1.0</li>
+            <li className={classes.info}><a href="/golabel/release" target="_blank">Release</a></li>
           </ul>
           <ul>
             <li className={classes.info}><a href="https://github.com/Sweekwang/golabel/tree/master" target="_blank">Github</a></li>
@@ -32,19 +32,19 @@ const Navbar = () => {
         <div className={[classes.buttonsContainer, isShow ? null:classes.visable].join(' ')} id={classes.main}>
           <ul>
             <li>
-              <a href="#home">Home</a>
+              <a href="/golabel#home">Home</a>
             </li>
             <li>
-              <a href="#how">How to use?</a>
+              <a href="/golabel#how">How to use?</a>
             </li>
             <li>
-              <a href="#">Abraidopsis Features</a>
+              <a href="/golabel/features">Abraidopsis Features</a>
             </li>
             <li>
               <a href="/golabel/download">Download</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="/golabel#contact">Contact</a>
             </li>
           </ul>
         </div>
