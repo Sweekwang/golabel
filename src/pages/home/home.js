@@ -1,5 +1,5 @@
 import {useHistory} from 'react-router-dom';
-import {useRef} from 'react';
+import {useRef, useEffect, useState } from 'react';
 
 import classes from './home.module.css';
 
@@ -7,6 +7,7 @@ import MainLayout from '../../components/layout/mainLayout/Main';
 import Layout from '../../components/layout/componentLayout/Layout';
 import Particle from './particle/particle';
 import AButton from '../../components/button/aButton';
+import FeaturesController from '../../methods/features';
 
 import How from './how/how'
 import ContactDiv from './contact/contact'
@@ -14,6 +15,7 @@ import ContactDiv from './contact/contact'
 
 
 const Home = () => {
+    const [list,setList] = useState([]);
     const history = useHistory();
 
     const inputRef = useRef(null);
@@ -27,6 +29,14 @@ const Home = () => {
         }
     
     };
+
+    useEffect(() => {
+        FeaturesController
+            .retrieveFeaturesInformation()
+            .then(res => {
+                setList(res);
+            });
+    }, []);
 
     return(
         <MainLayout>
@@ -45,9 +55,19 @@ const Home = () => {
                     <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> <br/>
                     <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0000003, E-GEO-39217_1a_up" ref ={inputRef}></input>
                     <datalist id="list">
-                        <option key="Test 1" value="Test 1"/>
-                        <option key="Test 1" value="Test 1"/>
-                        <option key="E-GEO-39217_1a_up_fi" value=""/>
+                        {list.map((currentList) => {
+                            var name = currentList.feature;
+
+                            if(name.includes("dge_")) {
+                                name = name.slice(4);
+                            } else if (name.includes("go_GO")) {
+                                name = "GO:" + name.slice(6);
+                            }
+
+                            return(
+                                <option key={name} value={name}/>
+                            )
+                        })}
                 
                     </datalist>
                     <input className={classes.searchSubmit} type="submit" value="Submit"></input>

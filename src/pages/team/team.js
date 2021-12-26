@@ -7,6 +7,7 @@ import MainLayout from '../../components/layout/mainLayout/Main';
 import Layout from '../../components/layout/componentLayout/Layout';
 import Marek from '../../assets/person/marek.png';
 import Jonathan from '../../assets/person/jonathan.jpeg';
+import SweeKwang from '../../assets/person/sweekwang.jpeg';
 
 
 const Team = () => {
@@ -36,6 +37,19 @@ const Team = () => {
                             <a href="https://www.plant.tools/team---jonathan.html" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faGlobe} size="lg"/></a>
                             <a href="https://www.linkedin.com/in/jonathan-ng-75b89089" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faLinkedin} size="lg"/></a>
                             <a href="https://github.com/jonng2018" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faGithub} size="lg"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div className={classes.imageContent}>
+                    <div className={classes.card}>
+                        <img src={SweeKwang} alt="Marek Mutwil"/>
+                        <h2>Swee Kwang</h2>
+                        <p>Undergraduate Student, Web Developer Intern</p>
+                        <div className={classes.icons}>
+                            <a href="https://sweekwang.com/" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faGlobe} size="lg"/></a>
+                            <a href="https://twitter.com/WesCSK" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faTwitter} size="lg"/></a>
+                            <a href="https://www.linkedin.com/in/chuasweekwang/" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faLinkedin} size="lg"/></a>
+                            <a href="https://github.com/Sweekwang" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faGithub} size="lg"/></a>
                         </div>
                     </div>
                 </div>

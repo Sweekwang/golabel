@@ -20,7 +20,7 @@ const GoTerm = () => {
   const [featuresDescription, setFeaturesDescription] = useState([]);
   const [scores, setScores] = useState([]);
   const [oob_f1, setoob_f1] = useState("-");
-  const [network, setNetwork] = useState(null);
+  const [network, setNetwork] = useState([]);
 
   const params = useParams();
   const goId = params.goId.replace(/\s+/g, '');
@@ -29,6 +29,7 @@ const GoTerm = () => {
   // Get data from database
   useEffect(() => {
     const data = { labels: goId };
+    console.log(data);
 
     fetch('https://go-label-316405.oa.r.appspot.com/api/go', {
       method: 'POST',
@@ -119,7 +120,7 @@ const GoTerm = () => {
           }
       </Layout>
 
-      {Array.from({ length: label.length }, (_, i) => i).map((index) => {
+      {(isError === false) && Array.from({ length: label.length }, (_, i) => i).map((index) => {
 
         return (
           <TableInfo
