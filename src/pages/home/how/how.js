@@ -12,7 +12,8 @@ const How = () => {
             <div className={classes.header}>
                 <Header src = {Like} className={classes.headerIcon}>Made with Love</Header>
                 <h3>How to use ?</h3>
-                <p>A database to explore biological relationships between Arabidopsis thailiana genetic characteristics..</p>
+                <p>A database to explore biological relationships between <i>Arabidopsis thailiana</i> genetic characteristics. Search using any 
+                    feature given in the list of features (link below).</p>
             </div>
             <div className={classes.howItems}>
                 <div className={classes.box}>
@@ -20,7 +21,9 @@ const How = () => {
                     <h3>
                         <img src={Search} alt="info"/> <br/>
                         Search.</h3>
-                    <p>Search by GO terms (e.g GO0000003) and other Arabidopsis feature names above. <a>Click Here</a> to find out the list of abraidopsis features</p>
+                    <p>Search by GO terms (e.g GO0000003) and other <i>A. thailiana</i> feature names above. GO terms (prefix is 'go_') and 
+                        Differential gene expression (DGE) features (prefix is 'dge_') need to be searched without their prefix 
+                        <a>Click Here</a> to find out the list of abraidopsis features</p>
                 </div>
 
                 <div className={classes.box}>
@@ -28,7 +31,7 @@ const How = () => {
                         <img src={Learning} alt="info"/><br/>
                         Learn.
                     </h3>
-                    <p>Get the list of Feature importance data of the input.</p>
+                    <p>Get the model score, network showing first neighbours, and the list of feature importance data of the input feature.</p>
                 </div>
             </div>
         </Layout>

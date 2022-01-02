@@ -35,7 +35,7 @@ const GoTerm = () => {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/json'
       },
     })
       .then((response) => {
@@ -51,7 +51,7 @@ const GoTerm = () => {
         setFeatures(data.features);
         setFeaturesDescription(data.featuresDesciption);
         setScores(data.scores);
-        setLabel(data.terms);
+        setLabel([goId]);
         setIsLoading(false);
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
@@ -104,7 +104,7 @@ const GoTerm = () => {
       <Layout>
           <div className={classes.goDiv}>
             <p>Term:</p>
-            <h1>{label}</h1>
+            <h1>{goId}</h1>
             <p><b>Description</b>: {labelDescrtiopn}</p>
             <p><b>oob_f1</b>: {oob_f1}</p>
           </div>

@@ -193,8 +193,8 @@ const TableInfo = (props) => {
             (index2) => (
               <tr>
                 <td>{index2 + 1}</td>
-                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/information/${selectedFeaturesType[index2]}`}>{selectedFeaturesType[index2]}</a></td>
-                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/information/${selectedFeatures[index2]}`}>{selectedFeatures[index2]}</a></td>
+                <td>{selectedFeaturesType[index2]}</td>
+                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${selectedFeatures[index2]}`}>{selectedFeatures[index2]}</a></td>
                 <td className={classes.capitalize}>
                   {selectedFeaturesDescription[index2]}
                 </td>
