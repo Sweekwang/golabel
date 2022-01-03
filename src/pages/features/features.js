@@ -6,19 +6,16 @@ import Layout from '../../components/layout/componentLayout/Layout';
 import AButton from '../../components/button/aButton';
 import { useEffect, useState } from 'react';
 import { saveAs } from 'file-saver';
-import Loader from '../../components/Loader/loader';
 
 const Features = () => {
     const [node,setNode] = useState([]);
     const [downloadList, setDownloadList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         FeaturesController
             .retrieveFeaturesInformation()
             .then(res => {
                 setNode(res);
-                setIsLoading(false);
             });
     }, []);
 
@@ -72,7 +69,6 @@ const Features = () => {
 
     const sort = () => {
         console.log('click')
-        setIsLoading(true);
         setNode((prevState) => {
             const dataToSort = [...prevState];
             dataToSort.sort((a,b) => a.category.toLowerCase() < b.category.toLowerCase() ? 1 : -1);
@@ -83,7 +79,6 @@ const Features = () => {
 
     return(
         <MainLayout>
-            {isLoading && <Loader/>}
             <Layout className={classes.layout}>
                 <h1>Abraidopsis Features</h1>
                 <p>
