@@ -55,35 +55,7 @@ const GoTerm = () => {
         setIsLoading(false);
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
-        setNetwork(
-          [
-            { data: { id: '1', label: 'Node 1' }},
-            { data: { id: '2', label: 'Node 2' }},
-            { data: { id: '3', label: 'Node 3' }},
-            { data: { id: '4', label: 'Node 4' }},
-            { data: { id: '5', label: 'Node 5' }},
-            { data: { id: '6', label: 'Node 6' }},
-            { data: { id: '7', label: 'Node 7' }},
-            { data: { id: '8', label: 'Node 8' }},
-            { data: { id: '9', label: 'Node 9' }},
-            { data: { id: '10', label: 'Node 10' }},
-            { data: { source: '1', target: '2', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '1', target: '3', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '2', target: '3', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '3', target: '1', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '3', target: '6', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '3', target: '2', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '3', target: '6', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '4', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '5', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '8', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '9', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '10', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '3', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '7', label: 'Edge from Node1 to Node2' } },
-            { data: { source: '6', target: '1', label: 'Edge from Node1 to Node2' } }
-         ]
-        )
+
       })
       .catch((error) => {
         setIsError(true);
@@ -93,6 +65,38 @@ const GoTerm = () => {
         setFeatures(['Error']);
       });
   }, [goId]);
+
+useEffect(() => {
+  setNetwork(
+    [
+      { data: { id: '1', label: 'Node 1' }},
+      { data: { id: '2', label: 'Node 2'}},
+      { data: { id: '3', label: 'Node 3' }},
+      { data: { id: '4', label: 'GO: 4', source: 'go'  }},
+      { data: { id: '5', label: 'GO: 5', source: 'go'  }},
+      { data: { id: '6', label: 'dge 6', source: 'dge'  }},
+      { data: { id: '7', label: 'dge 7', source: 'dge'  }},
+      { data: { id: '8', label: 'dge 8', source: 'dge'  }},
+      { data: { id: '9', label: 'ffi 9', source: 'ffi'  }},
+      { data: { id: '10', label: 'ffi 10', source: 'ffi'  }},
+      { data: { source: '1', target: '2', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '1', target: '3', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '2', target: '3', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '3', target: '1', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '3', target: '6', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '3', target: '2', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '3', target: '6', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '4', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '5', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '8', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '9', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '10', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '3', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '7', label: 'Edge from Node1 to Node2' } },
+      { data: { source: '6', target: '1', label: 'Edge from Node1 to Node2' } }
+   ]
+  )
+},[])
 
 
   return (

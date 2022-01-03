@@ -20,7 +20,7 @@ const Network = (props) => {
           style: {
             opacity: 0.8,
             label: 'data(label)',
-            backgroundColor: '#57837B',
+            backgroundColor: 'blue',
           }
         },
         {
@@ -28,6 +28,30 @@ const Network = (props) => {
           style: {
             opacity: 0.5,
             lineColor: '#515E63'
+          }
+        },
+        {
+          selector: "node[source = 'go' ]", 
+          style: {
+            opacity: 0.8,
+            label: 'data(label)',
+            backgroundColor: 'purple'
+          }
+        },
+        {
+          selector: "node[source = 'ffi' ]", 
+          style: {
+            opacity: 0.8,
+            label: 'data(label)',
+            backgroundColor: 'red'
+          }
+        },
+        {
+          selector: "node[source = 'dge' ]", 
+          style: {
+            opacity: 0.8,
+            label: 'data(label)',
+            backgroundColor: 'black'
           }
         }
       ];
@@ -61,9 +85,7 @@ const Network = (props) => {
                 height: sizeHeight,
               } } 
               stylesheet={stylesheet}
-              layout={{
-                name: 'random'
-              }} 
+              layout={layout} 
               pan={ { x: x, y: 80 } }
               zoom={0.8}
               minZoom={0.5}
