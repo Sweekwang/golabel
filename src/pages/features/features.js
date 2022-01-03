@@ -7,6 +7,8 @@ import AButton from '../../components/button/aButton';
 import { useEffect, useState } from 'react';
 import { saveAs } from 'file-saver';
 
+import MaterialTable, { MTableToolbar } from "@material-table/core";
+
 const Features = () => {
     const [node,setNode] = useState([]);
     const [downloadList, setDownloadList] = useState([]);
@@ -104,46 +106,30 @@ const Features = () => {
                 
                 </p>
                 
-                <form>
-                    <div className={[classes.row,classes.header].join(' ')}>
-                        <p className={classes.column1} onClick={sort}>Category</p>
-                        <label className={classes.column2}>Feature Name</label>
-                        <p className={classes.column3}>Description</p>
-                        <p className={classes.column4}>Download</p>
-                    </div>
-                    {node.map((currentNode) => {
-                        var name = currentNode.feature;
-
-                        if(name.includes("dge_")) {
-                            name = name.slice(4);
-                        } else if (name.includes("go_GO")) {
-                            name = "GO:" + name.slice(6);
+                <form><MaterialTable
+                    data = {node}
+                    columns = {[
+                        {field:"category",title:"Category",lookup:{"-":"-","Aranet clusters":"Aranet clusters","Aranet network features":"Aranet network features","Biochemical features":"Biochemical features","Coexp clusters":"Coexp clusters","Coexp network features":"Coexp network features","Conservation features":"Conservation features","DGE_general molecular function":"DGE_general molecular function","DGE_growth and development":"DGE_growth and development","DGE_infection and immunity":"DGE_infection and immunity","DGE_light and circadian":"DGE_light and circadian","DGE_stress and stimulus":"DGE_stress and stimulus","Disordered domains regions":"Disordered domains regions","Diurnal timepoints":"Diurnal timepoints","GO_molecular_function":"GO_molecular_function","Homolog features":"Homolog features","Number of domains":"Number of domains","Orthogroups":"Orthogroups","PPI clusters":"PPI clusters","PPI network features":"PPI network features","Pfam domains":"Pfam domains","Phylostrata":"Phylostrata","Protein PTMs":"Protein PTMs","Regulatory clusters":"Regulatory clusters","Regulatory network features":"Regulatory network features","SPM features":"SPM features","Single copy":"Single copy","TF-TG properties":"TF-TG properties","TPM features":"TPM features","TWAS features":"TWAS features","Tandemly duplicated":"Tandemly duplicated","Transmembrane helices":"Transmembrane helices","cis-regulatory element families":"cis-regulatory element families","cis-regulatory element names":"cis-regulatory element names"}},
+                        {field:"feature",title:"Feature Name",filtering:false,render:rowData=>{
+                            var name = rowData.feature;
+                            if(name.includes("dge_")) {
+                                name = name.slice(4);
+                            } else if (name.includes("go_GO")) {
+                                name = "GO:" + name.slice(6);
+                            }
+                            return <a href={"./goterm/" + name} rel="nofollow"><label for={name}>{name}</label></a>
+                        }},
+                        {field:"description",title:"Description",filtering:false},
+                        {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
+                    ]}
+                    options={{
+                        filtering:true,
+                        headerStyle:{
+                            fontWeight:"bold"
                         }
-
-                       return(
-                        <div className={classes.row}>
-                            <p className={classes.column1}>{currentNode.category}</p>
-                            <a className={classes.column2} href= {"./goterm/" + name} rel="nofollow"> 
-                                <label 
-                                    for={name}
-                                    >{name}</label>
-                            </a>
-
-                            <p className={classes.column3}>{currentNode.description}</p>
-                            <p className={classes.column4}>
-                                 <input 
-                                type="checkbox" 
-                                id={currentNode.feature} 
-                                name={currentNode.feature} 
-                                value={currentNode.feature}
-                                onClick={featureClicked}/>
-                            </p>
-
-                        </div>
-                       )
-                    })}
-                </form>
-
+                    }}
+                    title = ""
+                /></form>
             </Layout>
         </MainLayout>
     );
