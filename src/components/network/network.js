@@ -7,7 +7,7 @@ import classes from './network.module.css';
 const Network = (props) => {
 
   let [x, setX] = useState(window.innerWidth / 2.5);
-  let [sizeHeight, setSizeHeight] = useState('300px');
+  let [sizeHeight, setSizeHeight] = useState('500px');
   let [text, setText] = useState('Increase');
 
      const layout = {
@@ -84,6 +84,12 @@ const Network = (props) => {
               style={ {  
                 height: sizeHeight,
               } } 
+              cy={cy =>
+                cy.on('add', 'node', _evt => {
+                    cy.layout(layout).run()
+                    cy.fit()
+                })
+            }
               stylesheet={stylesheet}
               layout={layout} 
               pan={ { x: x, y: 80 } }
