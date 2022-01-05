@@ -82,6 +82,11 @@
     min-height: 100%;
 }
 
+th:nth-child(1),
+td:nth-child(1) {
+    max-width: none;
+}
+
 .fileSelected{
     padding: 6px 12px;
 }
