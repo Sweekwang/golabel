@@ -57,6 +57,7 @@ const GoTerm = () => {
         setoob_f1(data.model.oob_f1);
 
         const network = [...data.network.start, ...data.network.end];
+        console.log(network);
         setNetwork(network)
 
       })

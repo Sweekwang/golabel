@@ -18,42 +18,279 @@ const Network = (props) => {
         {
           selector: 'node',
           style: {
-            opacity: 0.8,
-            label: 'data(label)',
-            backgroundColor: 'blue',
+            "border-color" : "rgb(204,204,204)",
+            "background-opacity" : 1.0,
+            "border-opacity" : 1.0,
+            "font-size" : 12,
+            backgroundColor: "rgb(137,208,245)",
+            "text-valign" : "center",
+            "text-halign" : "center",
+            "color" : "rgb(0,0,0)",
+            "shape" : "roundrectangle",
+            "text-opacity" : 1.0,
+            "border-width" : 0.0,
+            "height" : 35.0,
+            "font-family" : "SansSerif.plain",
+            "font-weight" : "normal",
+            "width" : 75.0,
+            content: "data(new_name)"
           }
         },
         {
-          selector: 'edge',
-          style: {
-            opacity: 0.5,
-            lineColor: '#515E63'
+          selector: "node[feat_category = 'GO_biological_process']",
+          style : {
+            backgroundColor: "rgb(254,230,145)",
           }
-        },
-        {
-          selector: "node[source = 'go' ]", 
-          style: {
-            opacity: 0.8,
-            label: 'data(label)',
-            backgroundColor: 'purple'
+        }, {
+          selector: "node[feat_category = 'DGE_infection and immunity']",
+          style : {
+            backgroundColor: "rgb(228,185,165)"
           }
-        },
-        {
-          selector: "node[source = 'ffi' ]", 
-          style: {
-            opacity: 0.8,
-            label: 'data(label)',
-            backgroundColor: 'red'
+        }, {
+          selector: "node[feat_category = 'Tandemly duplicated']",
+          style : {
+            backgroundColor: "rgb(155,95,55)"
           }
-        },
-        {
-          selector: "node[source = 'dge' ]", 
-          style: {
-            opacity: 0.8,
-            label: 'data(label)',
-            backgroundColor: 'black'
+        }, {
+          selector: "node[feat_category = 'Regulatory clusters']",
+          style : {
+            backgroundColor: "rgb(240,2,127)"
+          }
+        }, {
+          selector: "node[feat_category = 'Conservation features']",
+          style : {
+            backgroundColor: "rgb(190,174,212)"
+          }
+        }, {
+          selector: "node[feat_category = 'DGE_general molecular function']",
+          style : {
+            backgroundColor: "rgb(203,178,196)"
+          }
+        }, {
+          selector: "node[feat_category = 'PPI clusters']",
+          style : {
+            backgroundColor: "rgb(56,108,176)"
+          }
+        }, {
+          selector: "node[feat_category = 'Coexp clusters']",
+          style : {
+            backgroundColor: "rgb(165,185,178)"
+          }
+        }, {
+          selector: "node[feat_category = 'DGE_growth and development']",
+          style : {
+            backgroundColor: "rgb(215,181,181)"
+          }
+        }, {
+          selector: "node[feat_category = 'Number of domains']",
+          style : {
+            backgroundColor: "rgb(136,167,167)"
+          }
+        }, {
+          selector: "node[feat_category = 'Coexp network features']",
+          style : {
+            backgroundColor: "rgb(177,179,195)"
+          }
+        }, {
+          selector: "node[feat_category = 'DGE_stress and stimulus']",
+          style : {
+            backgroundColor: "rgb(253,192,134)"
+          }
+        }, {
+          selector: "node[feat_category = 'Pfam domains']",
+          style : {
+            backgroundColor: "rgb(130,66,156)"
+          }
+        }, {
+          selector: "node[feat_category = 'Diurnal timepoints']",
+          style : {
+            backgroundColor: "rgb(254,217,142)"
+          }
+        }, {
+          selector: "node[feat_category = 'Gene body methlyated']",
+          style : {
+            backgroundColor: "rgb(215,226,158)"
+          }
+        }, {
+          selector: "node[feat_category = 'TF-TG properties']",
+          style : {
+            backgroundColor: "rgb(201,73,44)"
+          }
+        }, {
+          selector: "node[feat_category = 'Transmembrane helices']",
+          style : {
+            backgroundColor: "rgb(138,98,70)"
+          }
+        }, {
+          selector: "node[feat_category = 'GO_molecular_function']",
+          style : {
+            backgroundColor: "rgb(255,255,153)"
+          }
+        }, {
+          selector: "node[feat_category = 'Single copy']",
+          style : {
+            backgroundColor: "rgb(211,55,65)"
+          }
+        }, {
+          selector: "node[feat_category = 'Aranet network features']",
+          style : {
+            backgroundColor: "rgb(140,196,144)"
+          }
+        }, {
+          selector: "node[feat_category = 'DGE_light and circadian']",
+          style : {
+            backgroundColor: "rgb(240,188,150)"
+          }
+        }, {
+          selector: "node[feat_category = 'GO_cellular_component']",
+          style : {
+            backgroundColor: "rgb(255,242,149)"
+          }
+        }, {
+          selector: "node[feat_category = 'Aranet clusters']",
+          style : {
+            backgroundColor: "rgb(127,201,127)"
+          }
+        }, {
+          selector: "node[feat_category = 'Homolog features']",
+          style : {
+            backgroundColor: "rgb(175,196,162)"
+          }
+        }, {
+          selector: "node[feat_category = 'cis-regulatory element names']",
+          style : {
+            backgroundColor: "rgb(102,102,102)"
+          }
+        }, {
+          selector: "node[feat_category = 'Phylostrata']",
+          style : {
+            backgroundColor: "rgb(166,44,147)"
+          }
+        }, {
+          selector: "node[feat_category = 'SPM features']",
+          style : {
+            backgroundColor: "rgb(220,38,85)"
+          }
+        }, {
+          selector: "node[feat_category = 'PPI network features']",
+          style : {
+            backgroundColor: "rgb(93,87,166)"
+          }
+        }, {
+          selector: "node[feat_category = 'TWAS features']",
+          style : {
+            backgroundColor: "rgb(173,93,39)"
+          }
+        }, {
+          selector: "node[feat_category = 'cis-regulatory element families']",
+          style : {
+            backgroundColor: "rgb(120,100,86)"
+          }
+        }, {
+          selector: "node[feat_category = 'Disordered domains regions']",
+          style : {
+            backgroundColor: "rgb(253,205,138)"
+          }
+        }, {
+          selector: "node[feat_category = 'Orthogroups']",
+          style : {
+            backgroundColor: "rgb(96,137,171)"
+          }
+        }, {
+          selector: "node[feat_category = 'Regulatory network features']",
+          style : {
+            backgroundColor: "rgb(230,20,106)"
+          }
+        }, {
+          selector: "node[feat_category = 'Biochemical features']",
+          style : {
+            backgroundColor: "rgb(152,190,161)"
+          }
+        }, {
+          selector: "node[feat_category = 'Protein PTMs']",
+          style : {
+            backgroundColor: "rgb(203,23,137)"
+          }
+        }, {
+          selector: "node[feat_category = 'TPM features']",
+          style : {
+            backgroundColor: "rgb(191,91,23)"
+          }
+        }, {
+          selector: "node[ id = '1365' ]",
+          style : {
+            "text-valign" : "center"
+          }
+        }, {
+          selector: "node:selected",
+          style : {
+            backgroundColor: "rgb(255,255,0)"
+          }
+        }, {
+          "selector" : "edge",
+          style : {
+            "line-color" : "rgb(132,132,132)",
+            "width" : 2.0,
+            "target-arrow-shape" : "none",
+            "content" : "",
+            "source-arrow-shape" : "none",
+            "color" : "rgb(0,0,0)",
+            "source-arrow-color" : "rgb(0,0,0)",
+            "text-opacity" : 1.0,
+            "opacity" : 1.0,
+            "target-arrow-color" : "rgb(0,0,0)",
+            "font-family" : "Dialog.plain",
+            "font-weight" : "normal",
+            "line-style" : "solid",
+            "font-size" : 10
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp8']",
+          style : {
+            "line-color" : "rgb(153,102,255)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp7']",
+          style : {
+            "line-color" : "rgb(252,205,229)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp6']",
+          style : {
+            "line-color" : "rgb(179,222,105)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp5']",
+          style : {
+            "line-color" : "rgb(253,180,98)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp4']",
+          style : {
+            "line-color" : "rgb(128,177,211)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp3']",
+          style : {
+            "line-color" : "rgb(251,128,114)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp2']",
+          style : {
+            "line-color" : "rgb(190,186,218)"
+          }
+        }, {
+          "selector" : "edge[interaction = 'between_grp1']",
+          style : {
+            "line-color" : "rgb(255,255,179)"
+          }
+        }, {
+          "selector" : "edge:selected",
+          style : {
+            "line-color" : "rgb(255,0,0)"
           }
         }
+        
       ];
     
     const largehandler = () => {
