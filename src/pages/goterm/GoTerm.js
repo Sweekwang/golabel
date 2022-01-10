@@ -34,8 +34,10 @@ const GoTerm = () => {
     fetch('https://go-label-316405.oa.r.appspot.com/api/go', {
       method: 'POST',
       body: JSON.stringify(data),
+      mode: 'cors',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Access-Control-Allow-Origin':'*'
       },
     })
       .then((response) => {
