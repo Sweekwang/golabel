@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
-import ADropdownButton from '../dropdownbutton/aDropdownButton';
+import { ADropdownButton } from '../dropdownbutton/aDropdownButton';
+import { Element } from '../dropdownbutton/Element';
 import classes from './network.module.css';
+import {
+  Menu,
+  MenuItem,
+  MenuButton
+} from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
 
 const Network = (props) => {
 
@@ -311,8 +319,8 @@ const Network = (props) => {
 
     }
 
-    const change_layout = () => {
-      setLayout({name: 'random'})
+    const change_layout = (new_layout) => {
+      setLayout({name: new_layout})
     }
 
     return(
@@ -338,11 +346,22 @@ const Network = (props) => {
               />
           <div>
             <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
-            <AButton className={classes.btn} onClick={largehandler}>Node Colour</AButton>
-            <ADropdownButton className={classes.btn} onClick={change_layout}>Layout</ADropdownButton>
             <AButton className={classes.btn} onClick={largehandler}>Edge Filter</AButton>
+            <AButton className={classes.btn} onClick={largehandler}>Node Colour</AButton>
+            <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
+              <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
+              <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
+              <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
+              <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
+              <MenuItem onClick={() => change_layout('cose')}>Cose</MenuItem>
+              <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
+            </Menu>
+            
+            
           </div>
         </div>    
         )
 }
 export default Network;
+
+/*<ADropdownButton className={classes.btn} onClick={change_layout}>Layout</ADropdownButton>*/
