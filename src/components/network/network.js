@@ -1,7 +1,8 @@
-import React, { useState,  Fragment } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
+import ADropdownButton from '../dropdownbutton/aDropdownButton';
 import classes from './network.module.css';
 
 const Network = (props) => {
@@ -9,10 +10,7 @@ const Network = (props) => {
   let [x, setX] = useState(window.innerWidth / 2.5);
   let [sizeHeight, setSizeHeight] = useState('500px');
   let [text, setText] = useState('Increase');
-
-     const layout = {
-        name: 'random'
-      }
+  let [layout, setLayout] = useState({name: 'cose'});
 
       const stylesheet = [
         {
@@ -307,11 +305,14 @@ const Network = (props) => {
         } else {
           setText('Increase')
           return '300px'
-          
         }
         
       });
 
+    }
+
+    const change_layout = () => {
+      setLayout({name: 'random'})
     }
 
     return(
@@ -338,7 +339,7 @@ const Network = (props) => {
           <div>
             <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
             <AButton className={classes.btn} onClick={largehandler}>Node Colour</AButton>
-            <AButton className={classes.btn} onClick={largehandler}>Layout</AButton>
+            <ADropdownButton className={classes.btn} onClick={change_layout}>Layout</ADropdownButton>
             <AButton className={classes.btn} onClick={largehandler}>Edge Filter</AButton>
           </div>
         </div>    
