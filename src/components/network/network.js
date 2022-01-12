@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,  Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
@@ -335,8 +335,12 @@ const Network = (props) => {
               maxZoom={2}
 
               />
-          <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
-          
+          <div>
+            <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
+            <AButton className={classes.btn} onClick={largehandler}>Node Colour</AButton>
+            <AButton className={classes.btn} onClick={largehandler}>Layout</AButton>
+            <AButton className={classes.btn} onClick={largehandler}>Edge Filter</AButton>
+          </div>
         </div>    
         )
 }
