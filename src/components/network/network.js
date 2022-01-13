@@ -10,7 +10,6 @@ import {
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
 import { CompactPicker } from 'react-color';
-import { Button } from '@material-ui/core';
 
 const Network = (props) => {
 
@@ -18,7 +17,7 @@ const Network = (props) => {
   let [sizeHeight, setSizeHeight] = useState('500px');
   let [text, setText] = useState('Increase');
   let [changeNode, setChangeNode] = useState(false);
-  //let [layout, setLayout] = useState({name: 'cose'});
+  let [layout, setLayout] = useState({name: 'cose'});
 
   let [GO_biological_process, setGO_biological_process] = useState("rgb(228,185,165)");
   let [DGE_infection_and_immunity, setDGE_infection_and_immunity] = useState("rgb(228,185,165)");
@@ -56,11 +55,6 @@ const Network = (props) => {
   let [Biochemical, setBiochemical] = useState("#ffffff");
   let [PTMs, setPTMs] = useState("#ffffff");
   let [TPM, setTPM] = useState("#ffffff");
-
-     const layout = {
-        name: 'random', //'cose', 'random', 'breadthfirst', circle, grid
-        animate: true,
-      }
 
       const stylesheet = [
         {
@@ -378,6 +372,16 @@ const Network = (props) => {
         <div className={classes.buttondiv}>
           <AButton onClick={changeNodeColorHandler}>Change Node Color</AButton>
           <AButton>Change Edge Color</AButton>
+          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons become too big*/}
+          <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
+              <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
+              <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
+              <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
+              <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
+              <MenuItem onClick={() => change_layout('cose')}>Cose</MenuItem>
+              <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
+          </Menu>
+
         </div>
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>
@@ -538,24 +542,9 @@ const Network = (props) => {
               minZoom={0.5}
               maxZoom={2}
               />
-          <div>
             <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
-            <AButton className={classes.btn} onClick={largehandler}>Edge Filter</AButton>
-            <AButton className={classes.btn} onClick={largehandler}>Node Colour</AButton>
-            <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
-              <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
-              <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
-              <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
-              <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
-              <MenuItem onClick={() => change_layout('cose')}>Cose</MenuItem>
-              <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
-            </Menu>
-            <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
-          </div>
         </div>       
       </Fragment>   
     )
 }
 export default Network;
-
-/*<ADropdownButton className={classes.btn} onClick={change_layout}>Layout</ADropdownButton>*/

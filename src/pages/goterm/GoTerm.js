@@ -109,8 +109,6 @@ useEffect(() => {
     <MainLayout>
       {isLoading && <Loader />}
       {isError && <ErrorBar />}
-
-      
       <Layout>
           <div className={classes.goDiv}>
             <p>Term:</p>
