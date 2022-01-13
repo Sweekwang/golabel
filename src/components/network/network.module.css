@@ -10,6 +10,13 @@
     flex-direction: column;
     border: 1px solid black;
 }
+/* SK's changes
+.btn{
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+*/
 
 .dropbtn{
     position: relative;
@@ -32,4 +39,34 @@
     text-decoration: underline;
     color: #2f5d62;
     cursor:pointer; 
+}
+
+.colorContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 12px 50px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 1px 1px 5px #747474;
+}
+
+.colorContainerItem{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.colorContainerItem p{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.buttondiv{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 20px
 }

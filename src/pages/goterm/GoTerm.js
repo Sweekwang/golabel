@@ -58,9 +58,9 @@ const GoTerm = () => {
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
 
-        const network = [...data.network.start, ...data.network.end];
-        console.log(network);
-        setNetwork(network)
+        // const network = [...data.network.start, ...data.network.end];
+        // console.log(network);
+        // setNetwork(network)
 
       })
       .catch((error) => {
