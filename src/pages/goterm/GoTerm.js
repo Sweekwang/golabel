@@ -59,6 +59,7 @@ const GoTerm = () => {
         setoob_f1(data.model.oob_f1);
 
         const network = [...data.network.start, ...data.network.end];
+        console.log("Net WOrk")
         console.log(network);
         setNetwork(network)
 
@@ -69,6 +70,7 @@ const GoTerm = () => {
         setLabel(['Error']);
         setScores(['Error']);
         setFeatures(['Error']);
+        setNetwork([]);
       });
   }, [goId]);
 
@@ -116,16 +118,14 @@ useEffect(() => {
             <p><b>Description</b>: {labelDescrtiopn}</p>
             <p><b>oob_f1</b>: {oob_f1}</p>
           </div>
-          { (network !== null) &&
-
-              <Fragment>
+          <Fragment>
               <h2 className={classes.networkH2}>Network</h2>
+          { (network.length > 0) ?
                 <Network 
                   elements={network} 
-                  />
-              </Fragment>
-            
+                  />: <p>Features is not found in network as it did not meet the OOB F1/R<sup>2</sup> threshold of &gt;= 0.4 to be included in the network</p>
           }
+          </Fragment> 
       </Layout>
 
       {(isError === false) && Array.from({ length: label.length }, (_, i) => i).map((index) => {

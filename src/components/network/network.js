@@ -64,7 +64,7 @@ const Network = (props) => {
             "background-opacity" : 1.0,
             "border-opacity" : 1.0,
             "font-size" : 12,
-            backgroundColor: "#FF6363",
+            backgroundColor: GO_biological_process,
             "text-valign" : "center",
             "text-halign" : "center",
             "color" : "rgb(0,0,0)",
@@ -354,15 +354,32 @@ const Network = (props) => {
       });
     }
 
-    const updateColor = (color) => {
-      console.log(color)
-      setAranet(color.hex)
-    }
-
     const changeNodeColorHandler = () => {
       setChangeNode(!changeNode)
     }
+    // Change Color.
+    const updateColor = (color) => { // TODO: TO DELETE THIS FUNCTION ONCE EVERYTHING IS DONE.
+      setGO_biological_process(color.hex)
+    }
 
+    const updateGO_biological_proces = (color) => {
+      setGO_biological_process(color.hex)
+    }
+
+    const updateDGE_infection_and_immunity= (color) => {
+      setDGE_infection_and_immunity(color.hex)
+    }
+
+    const updateTandemly= (color) => {
+      setTandemly(color.hex)
+    }
+
+    const updateRegulatory = (color) => {
+      setRegulatory(color.hex)
+    }
+    
+    // ============================================================
+    // Change Layout
     const change_layout = (new_layout) => {
       setLayout({name: new_layout})
     }
@@ -386,19 +403,19 @@ const Network = (props) => {
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>
             <p>GO_biological_process:</p>
-            <CompactPicker color={GO_biological_process} onChangeComplete={updateColor}/>
+            <CompactPicker color={GO_biological_process} onChangeComplete={updateGO_biological_proces}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_infection and immunity:</p>
-            <CompactPicker color={DGE_infection_and_immunity} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_infection_and_immunity} onChangeComplete={updateDGE_infection_and_immunity}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Tandemly duplicated:</p>
-            <CompactPicker color={Tandemly} onChangeComplete={updateColor}/>
+            <CompactPicker color={Tandemly} onChangeComplete={updateTandemly}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Regulatory clusters:</p>
-            <CompactPicker color={Regulatory} onChangeComplete={updateColor}/>
+            <CompactPicker color={Regulatory} onChangeComplete={updateRegulatory}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Conservation features:</p>
