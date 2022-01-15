@@ -14,11 +14,11 @@ import { CompactPicker } from 'react-color';
 const Network = (props) => {
 
   let [x, setX] = useState(window.innerWidth / 2.5);
-  let [sizeHeight, setSizeHeight] = useState('500px');
-  let [text, setText] = useState('Increase');
-  let [changeNode, setChangeNode] = useState(false);
+  let [sizeHeight, setSizeHeight] = useState(500);
   let [layout, setLayout] = useState({name: 'cose'});
 
+  // CHANGE THE STATE OF THE COLOR:
+  let [changeNode, setChangeNode] = useState(false);
   let [GO_biological_process, setGO_biological_process] = useState("rgb(228,185,165)");
   let [DGE_infection_and_immunity, setDGE_infection_and_immunity] = useState("rgb(228,185,165)");
   let [Tandemly, setTandemly] = useState("rgb(155,95,55)");
@@ -55,6 +55,18 @@ const Network = (props) => {
   let [Biochemical, setBiochemical] = useState("#ffffff");
   let [PTMs, setPTMs] = useState("#ffffff");
   let [TPM, setTPM] = useState("#ffffff");
+
+  // Egde Color
+  let [edgeFilter, setEdgeFilter] = useState(false);
+  let [defaultEdge, setdefaultEdge] = useState("rgb(132,132,132)");
+  let [between_grp8, setbetween_grp8] = useState("rgb(153,102,255)");
+  let [between_grp6, setbetween_grp6] = useState("rgb(179,222,105)");
+  let [between_grp7, setbetween_grp7] = useState("rgb(252,205,229)");
+  let [between_grp5, setbetween_grp5] = useState("rgb(253,180,98)");
+  let [between_grp4, setbetween_grp4] = useState("rgb(128,177,211)");
+  let [between_grp3, setbetween_grp3] = useState("rgb(251,128,114)");
+  let [between_grp2, setbetween_grp2] = useState("rgb(190,186,218)");
+  let [between_grp1, setbetween_grp1] = useState("rgb(255,255,179)");
 
       const stylesheet = [
         {
@@ -271,7 +283,7 @@ const Network = (props) => {
         }, {
           "selector" : "edge",
           style : {
-            "line-color" : "rgb(132,132,132)",
+            "line-color" : defaultEdge,
             "width" : 2.0,
             "target-arrow-shape" : "none",
             "content" : "",
@@ -289,42 +301,42 @@ const Network = (props) => {
         }, {
           "selector" : "edge[interaction = 'between_grp8']",
           style : {
-            "line-color" : "rgb(153,102,255)"
+            "line-color" : between_grp8
           }
         }, {
           "selector" : "edge[interaction = 'between_grp7']",
           style : {
-            "line-color" : "rgb(252,205,229)"
+            "line-color" : between_grp7
           }
         }, {
           "selector" : "edge[interaction = 'between_grp6']",
           style : {
-            "line-color" : "rgb(179,222,105)"
+            "line-color" : between_grp6
           }
         }, {
           "selector" : "edge[interaction = 'between_grp5']",
           style : {
-            "line-color" : "rgb(253,180,98)"
+            "line-color" : between_grp5
           }
         }, {
           "selector" : "edge[interaction = 'between_grp4']",
           style : {
-            "line-color" : "rgb(128,177,211)"
+            "line-color" : between_grp4
           }
         }, {
           "selector" : "edge[interaction = 'between_grp3']",
           style : {
-            "line-color" : "rgb(251,128,114)"
+            "line-color" : between_grp3
           }
         }, {
           "selector" : "edge[interaction = 'between_grp2']",
           style : {
-            "line-color" : "rgb(190,186,218)"
+            "line-color" : between_grp2
           }
         }, {
           "selector" : "edge[interaction = 'between_grp1']",
           style : {
-            "line-color" : "rgb(255,255,179)"
+            "line-color" : between_grp1
           }
         }, {
           "selector" : "edge:selected",
@@ -337,25 +349,19 @@ const Network = (props) => {
     
     const largehandler = () => {
       setSizeHeight(prevHeight => {
-        if (prevHeight === '300px') {
-          return '400px'
-        } else if (prevHeight === '400px') {
-          return '500px'
-        } else if (prevHeight === '500px') {
-          return '600px'
-        } else if (prevHeight === '600px') {
-          setText('Decrease')
-          return '700px'
-        } else {
-          setText('Increase')
-          return '300px'
-        }
-        
+          return prevHeight + 100
+      });
+    }
+
+    const decreaseHandler = () => {
+      setSizeHeight(prevHeight => {
+          return prevHeight - 100
       });
     }
 
     const changeNodeColorHandler = () => {
-      setChangeNode(!changeNode)
+      setEdgeFilter(false);
+      setChangeNode(!changeNode);
     }
     // Change Color.
     const updateColor = (color) => { // TODO: TO DELETE THIS FUNCTION ONCE EVERYTHING IS DONE.
@@ -379,6 +385,49 @@ const Network = (props) => {
     }
     
     // ============================================================
+    // Change Edge Color
+    const showEdgeFilter = () => {
+      setChangeNode(false);
+      setEdgeFilter(!edgeFilter);
+    }
+
+    const update_defaultEdge = (color) => {
+      setdefaultEdge(color.hex)
+    }
+
+    const update_between_grp8= (color) => {
+      setbetween_grp8(color.hex)
+    }
+
+    const update_between_grp6 = (color) => {
+      setbetween_grp6(color.hex)
+    }
+
+    const update_between_grp7 = (color) => {
+      setbetween_grp7(color.hex)
+    }
+
+    const update_between_grp5 = (color) => {
+      setbetween_grp5(color.hex)
+    }
+
+    const update_between_grp4 = (color) => {
+      setbetween_grp4(color.hex)
+    }
+
+    const update_between_grp3= (color) => {
+      setbetween_grp3(color.hex)
+    }
+
+    const update_between_grp2= (color) => {
+      setbetween_grp2(color.hex)
+    }
+
+    const update_between_grp1= (color) => {
+      setbetween_grp1(color.hex)
+    }
+
+    // ============================================================
     // Change Layout
     const change_layout = (new_layout) => {
       setLayout({name: new_layout})
@@ -388,7 +437,7 @@ const Network = (props) => {
       <Fragment>
         <div className={classes.buttondiv}>
           <AButton onClick={changeNodeColorHandler}>Change Node Color</AButton>
-          <AButton>Change Edge Color</AButton>
+          <AButton onClick={showEdgeFilter}>Change Edge Color</AButton>
           {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons become too big*/}
           <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
               <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
@@ -546,11 +595,49 @@ const Network = (props) => {
             <CompactPicker color={TPM} onChangeComplete={updateColor}/>
           </div>
         </div>}
+        {edgeFilter && <div className={classes.colorContainer}>
+          <div className={classes.colorContainerItem}>
+            <p>Default Egde:</p>
+            <CompactPicker color={defaultEdge} onChangeComplete={update_defaultEdge}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp8:</p>
+            <CompactPicker color={between_grp8} onChangeComplete={update_between_grp8}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp7:</p>
+            <CompactPicker color={between_grp7} onChangeComplete={update_between_grp7}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp6:</p>
+            <CompactPicker color={between_grp6} onChangeComplete={update_between_grp6}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp5:</p>
+            <CompactPicker color={between_grp5} onChangeComplete={update_between_grp5}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp4:</p>
+            <CompactPicker color={between_grp4} onChangeComplete={update_between_grp4}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp3:</p>
+            <CompactPicker color={between_grp3} onChangeComplete={update_between_grp3}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp2:</p>
+            <CompactPicker color={between_grp2} onChangeComplete={update_between_grp2}/>
+          </div>
+          <div className={classes.colorContainerItem}>
+            <p>between_grp1:</p>
+            <CompactPicker color={between_grp1} onChangeComplete={update_between_grp1}/>
+          </div>
+        </div>}
         <div className={classes.network}>
           <CytoscapeComponent 
               elements={props.elements} 
               style={ {  
-                height: sizeHeight,
+                height: sizeHeight + 'px',
               } } 
               cy={cy =>
                 cy.on('add', 'node', _evt => {
@@ -565,7 +652,8 @@ const Network = (props) => {
               minZoom={0.5}
               maxZoom={2}
               />
-            <AButton className={classes.btn} onClick={largehandler}>{text} Frame Height</AButton>
+            <AButton className={classes.btn2} onClick={decreaseHandler}>↑</AButton>
+            <AButton className={classes.btn} onClick={largehandler}>↓</AButton>
         </div>       
       </Fragment>   
     )

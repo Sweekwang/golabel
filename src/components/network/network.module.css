@@ -9,6 +9,12 @@
     right: 4px;
 }
 
+.btn2{
+    position: absolute;
+    bottom: 4px;
+    right: 42px;
+}
+
 .colorContainer{
     display: flex;
     flex-direction: row;
