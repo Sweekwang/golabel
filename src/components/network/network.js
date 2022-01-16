@@ -10,12 +10,19 @@ import {
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
 import { CompactPicker } from 'react-color';
+import Cytoscape from 'cytoscape';
+import fcose from 'cytoscape-fcose';
+
+Cytoscape.use(fcose);
 
 const Network = (props) => {
 
   let [x, setX] = useState(window.innerWidth / 2.5);
   let [sizeHeight, setSizeHeight] = useState(500);
-  let [layout, setLayout] = useState({name: 'cose'});
+  let [layout, setLayout] = useState({name: 'fcose', nodeSeparation: 400, idealEdgeLength: edge => 300});
+
+  //name: 'cose', animate: false, padding: 100, componentSpacing: 1000, nodeRepulsion: function( node ){ return 5096; },
+  //gravity: 10}
 
   // CHANGE THE STATE OF THE COLOR:
   let [changeNode, setChangeNode] = useState(false);
@@ -430,7 +437,11 @@ const Network = (props) => {
     // ============================================================
     // Change Layout
     const change_layout = (new_layout) => {
-      setLayout({name: new_layout})
+      if (new_layout == 'fcose') {
+        setLayout({name: 'fcose', nodeSeparation: 400, idealEdgeLength: edge => 300})
+      } else {
+        setLayout({name: new_layout})
+      }  
     }
 
     return(
@@ -444,7 +455,7 @@ const Network = (props) => {
               <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
               <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
               <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
-              <MenuItem onClick={() => change_layout('cose')}>Cose</MenuItem>
+              <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
               <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
           </Menu>
 
