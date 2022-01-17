@@ -28,38 +28,39 @@ const Network = (props) => {
   let [DGE_infection_and_immunity, setDGE_infection_and_immunity] = useState("rgb(228,185,165)");
   let [Tandemly, setTandemly] = useState("rgb(155,95,55)");
   let [Regulatory, setRegulatory] = useState("rgb(240,2,127)");
-  let [Conservation, setDGE_general] = useState("rgb(190,174,212)");
-  let [molecular, setmolecular] = useState("rgb(203,178,196)");
+  let [Conservation, setConservation] = useState("rgb(190,174,212)");
+  let [DGE_general, setDGE_general] = useState("rgb(203,178,196)");
+  let [molecular, setmolecular] = useState("rgb(203,178,196)"); // can remove later, supposed to be DGE mol func
   let [PPI, setPPI] = useState("rgb(56,108,176)");
-  let [Coexp, setCoexp] = useState("gb(165,185,178)");
-  let [DGE_growth, setDGE_growth] = useState("#ffffff");
-  let [domains, setdomains] = useState("#ffffff");
-  let [network, setnetwork] = useState("#ffffff");
-  let [DGE_stress, setDGE_stress] = useState("#ffffff");
-  let [Pfam, setPfam] = useState("#ffffff");
-  let [Diurnal, setDiurnal] = useState("#ffffff");
-  let [methlyated, setmethlyated] = useState("#ffffff");
-  let [TF_TG, setTF_TG] = useState("#ffffff");
-  let [Transmembrane, setTransmembrane] = useState("#ffffff");
-  let [GO_molecular_function, setGO_molecular_function] = useState("#ffffff");
-  let [Single, setSingle] = useState("#ffffff");
-  let [Aranet, setAranet] = useState("#ffffff");
-  let [DGE_light, setDGE_light] = useState();
-  let [GO_cellular_component, setGO_cellular_component] = useState("#ffffff");
-  let [Aranet2, setAranet2] = useState("#ffffff");
-  let [Homolog, setHomolog] = useState("#ffffff");
-  let [element, setelement] = useState("#ffffff");
-  let [Phylostrata, setPhylostrata] = useState("#ffffff");
-  let [SPM, setSPM] = useState("#ffffff");
-  let [PPInetwork, setPPInetwork] = useState("#ffffff");
-  let [TWAS, setTWAS] = useState("#ffffff");
-  let [families, setfamilies] = useState("#ffffff");
-  let [Disordered, setDisordered] = useState("#ffffff");
-  let [Orthogroups, setOrthogroups] = useState("#ffffff");
-  let [Regulatory2, setRegulatory2] = useState("#ffffff");
-  let [Biochemical, setBiochemical] = useState("#ffffff");
-  let [PTMs, setPTMs] = useState("#ffffff");
-  let [TPM, setTPM] = useState("#ffffff");
+  let [Coexp, setCoexp] = useState("gb(165,185,178)"); // coexp clusters
+  let [DGE_growth, setDGE_growth] = useState("rgb(215,181,181)");
+  let [Domains, setDomains] = useState("rgb(136,167,167)");
+  let [network, setnetwork] = useState("rgb(177,179,195)"); // coexp network features, need to be in small caps as Network is taken as a variable
+  let [DGE_stress, setDGE_stress] = useState("rgb(253,192,134)");
+  let [Pfam, setPfam] = useState("rgb(130,66,156)");
+  let [Diurnal, setDiurnal] = useState("rgb(254,217,142)");
+  let [Methlyated, setMethlyated] = useState("rgb(215,226,158)");
+  let [TF_TG, setTF_TG] = useState("rgb(201,73,44)");
+  let [Transmembrane, setTransmembrane] = useState("rgb(138,98,70)");
+  let [GO_molecular_function, setGO_molecular_function] = useState("rgb(255,255,153)");
+  let [Single, setSingle] = useState("rgb(211,55,65)");
+  let [Aranet, setAranet] = useState("rgb(140,196,144)");
+  let [DGE_light, setDGE_light] = useState("rgb(240,188,150)");
+  let [GO_cellular_component, setGO_cellular_component] = useState("rgb(255,242,149)");
+  let [Aranet2, setAranet2] = useState("rgb(127,201,127)");
+  let [Homolog, setHomolog] = useState("rgb(175,196,162)");
+  let [element, setelement] = useState("rgb(102,102,102)"); // Prob can caps but didnt since Elements can also refer to specific types of React objectd
+  let [Phylostrata, setPhylostrata] = useState("rgb(166,44,147)");
+  let [SPM, setSPM] = useState("rgb(220,38,85)");
+  let [PPInetwork, setPPInetwork] = useState("rgb(93,87,166)");
+  let [TWAS, setTWAS] = useState("rgb(173,93,39)");
+  let [Families, setFamilies] = useState("rgb(120,100,86)");
+  let [Disordered, setDisordered] = useState("rgb(253,205,138)");
+  let [Orthogroups, setOrthogroups] = useState("rgb(96,137,171)");
+  let [Regulatory2, setRegulatory2] = useState("rgb(230,20,106)");
+  let [Biochemical, setBiochemical] = useState("rgb(152,190,161)");
+  let [PTMs, setPTMs] = useState("rgb(203,23,137)");
+  let [TPM, setTPM] = useState("rgb(191,91,23)");
 
   // Egde Color
   let [edgeFilter, setEdgeFilter] = useState(false);
@@ -81,7 +82,7 @@ const Network = (props) => {
             "background-opacity" : 1.0,
             "border-opacity" : 1.0,
             "font-size" : 12,
-            backgroundColor: GO_biological_process,
+            "backgroundColor": "rgb(137,208,245)",
             "text-valign" : "center",
             "text-halign" : "center",
             "color" : "rgb(0,0,0)",
@@ -92,7 +93,7 @@ const Network = (props) => {
             "font-family" : "SansSerif.plain",
             "font-weight" : "normal",
             "width" : 75.0,
-            content: "data(new_name)"
+            "content": "data(new_name)"
           }
         },
         {
@@ -123,7 +124,7 @@ const Network = (props) => {
         }, {
           selector: "node[feat_category = 'DGE_general molecular function']",
           style : {
-            backgroundColor: molecular
+            backgroundColor: DGE_general
           }
         }, {
           selector: "node[feat_category = 'PPI clusters']",
@@ -138,142 +139,142 @@ const Network = (props) => {
         }, {
           selector: "node[feat_category = 'DGE_growth and development']",
           style : {
-            backgroundColor: "rgb(215,181,181)"
+            backgroundColor: DGE_growth
           }
         }, {
           selector: "node[feat_category = 'Number of domains']",
           style : {
-            backgroundColor: "rgb(136,167,167)"
+            backgroundColor: Domains
           }
         }, {
           selector: "node[feat_category = 'Coexp network features']",
           style : {
-            backgroundColor: "rgb(177,179,195)"
+            backgroundColor: network
           }
         }, {
           selector: "node[feat_category = 'DGE_stress and stimulus']",
           style : {
-            backgroundColor: "rgb(253,192,134)"
+            backgroundColor: DGE_stress
           }
         }, {
           selector: "node[feat_category = 'Pfam domains']",
           style : {
-            backgroundColor: "rgb(130,66,156)"
+            backgroundColor: Pfam
           }
         }, {
           selector: "node[feat_category = 'Diurnal timepoints']",
           style : {
-            backgroundColor: "rgb(254,217,142)"
+            backgroundColor: Diurnal
           }
         }, {
           selector: "node[feat_category = 'Gene body methlyated']",
           style : {
-            backgroundColor: "rgb(215,226,158)"
+            backgroundColor: Methlyated
           }
         }, {
           selector: "node[feat_category = 'TF-TG properties']",
           style : {
-            backgroundColor: "rgb(201,73,44)"
+            backgroundColor: TF_TG
           }
         }, {
           selector: "node[feat_category = 'Transmembrane helices']",
           style : {
-            backgroundColor: "rgb(138,98,70)"
+            backgroundColor: Transmembrane
           }
         }, {
           selector: "node[feat_category = 'GO_molecular_function']",
           style : {
-            backgroundColor: "rgb(255,255,153)"
+            backgroundColor: GO_molecular_function
           }
         }, {
           selector: "node[feat_category = 'Single copy']",
           style : {
-            backgroundColor: "rgb(211,55,65)"
+            backgroundColor: Single
           }
         }, {
           selector: "node[feat_category = 'Aranet network features']",
           style : {
-            backgroundColor: "rgb(140,196,144)"
+            backgroundColor: Aranet
           }
         }, {
           selector: "node[feat_category = 'DGE_light and circadian']",
           style : {
-            backgroundColor: "rgb(240,188,150)"
+            backgroundColor: DGE_light
           }
         }, {
           selector: "node[feat_category = 'GO_cellular_component']",
           style : {
-            backgroundColor: "rgb(255,242,149)"
+            backgroundColor: GO_cellular_component
           }
         }, {
           selector: "node[feat_category = 'Aranet clusters']",
           style : {
-            backgroundColor: "rgb(127,201,127)"
+            backgroundColor: Aranet2
           }
         }, {
           selector: "node[feat_category = 'Homolog features']",
           style : {
-            backgroundColor: "rgb(175,196,162)"
+            backgroundColor: Homolog
           }
         }, {
           selector: "node[feat_category = 'cis-regulatory element names']",
           style : {
-            backgroundColor: "rgb(102,102,102)"
+            backgroundColor: element
           }
         }, {
           selector: "node[feat_category = 'Phylostrata']",
           style : {
-            backgroundColor: "rgb(166,44,147)"
+            backgroundColor: Phylostrata
           }
         }, {
           selector: "node[feat_category = 'SPM features']",
           style : {
-            backgroundColor: "rgb(220,38,85)"
+            backgroundColor: SPM
           }
         }, {
           selector: "node[feat_category = 'PPI network features']",
           style : {
-            backgroundColor: "rgb(93,87,166)"
+            backgroundColor: PPInetwork
           }
         }, {
           selector: "node[feat_category = 'TWAS features']",
           style : {
-            backgroundColor: "rgb(173,93,39)"
+            backgroundColor: TWAS
           }
         }, {
           selector: "node[feat_category = 'cis-regulatory element families']",
           style : {
-            backgroundColor: "rgb(120,100,86)"
+            backgroundColor: Families
           }
         }, {
           selector: "node[feat_category = 'Disordered domains regions']",
           style : {
-            backgroundColor: "rgb(253,205,138)"
+            backgroundColor: Disordered
           }
         }, {
           selector: "node[feat_category = 'Orthogroups']",
           style : {
-            backgroundColor: "rgb(96,137,171)"
+            backgroundColor: Orthogroups
           }
         }, {
           selector: "node[feat_category = 'Regulatory network features']",
           style : {
-            backgroundColor: "rgb(230,20,106)"
+            backgroundColor: Regulatory2
           }
         }, {
           selector: "node[feat_category = 'Biochemical features']",
           style : {
-            backgroundColor: "rgb(152,190,161)"
+            backgroundColor: Biochemical
           }
         }, {
           selector: "node[feat_category = 'Protein PTMs']",
           style : {
-            backgroundColor: "rgb(203,23,137)"
+            backgroundColor: PTMs
           }
         }, {
           selector: "node[feat_category = 'TPM features']",
           style : {
-            backgroundColor: "rgb(191,91,23)"
+            backgroundColor: TPM
           }
         }, {
           selector: "node[ id = '1365' ]",
@@ -482,7 +483,7 @@ const Network = (props) => {
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_general molecular function:</p>
-            <CompactPicker color={molecular} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_general} onChangeComplete={updateColor}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>PPI clusters:</p>
@@ -498,7 +499,7 @@ const Network = (props) => {
           </div>
           <div className={classes.colorContainerItem}>
             <p>Number of domains:</p>
-            <CompactPicker color={domains} onChangeComplete={updateColor}/>
+            <CompactPicker color={Domains} onChangeComplete={updateColor}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Coexp network features:</p>
@@ -518,7 +519,7 @@ const Network = (props) => {
           </div>
           <div className={classes.colorContainerItem}>
             <p>Gene body methlyated:</p>
-            <CompactPicker color={methlyated} onChangeComplete={updateColor}/>
+            <CompactPicker color={Methlyated} onChangeComplete={updateColor}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>TF-TG properties:</p>
@@ -578,7 +579,7 @@ const Network = (props) => {
           </div>
           <div className={classes.colorContainerItem}>
             <p>cis-regulatory element families</p>
-            <CompactPicker color={families} onChangeComplete={updateColor}/>
+            <CompactPicker color={Families} onChangeComplete={updateColor}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Disordered domains regions:</p>
