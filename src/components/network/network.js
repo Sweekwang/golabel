@@ -19,14 +19,12 @@ const Network = (props) => {
 
   let [x, setX] = useState(window.innerWidth / 2.5);
   let [sizeHeight, setSizeHeight] = useState(500);
-  let [layout, setLayout] = useState({name: 'fcose', nodeSeparation: 400, idealEdgeLength: edge => 300});
-
-  //name: 'cose', animate: false, padding: 100, componentSpacing: 1000, nodeRepulsion: function( node ){ return 5096; },
-  //gravity: 10}
+  let [layout, setLayout] = useState({name: 'fcose', nodeSeparation: 300, idealEdgeLength: edge => 150, 
+  nodeRepulsion: node => 18000,  edgeElasticity: edge => 0.01});
 
   // CHANGE THE STATE OF THE COLOR:
   let [changeNode, setChangeNode] = useState(false);
-  let [GO_biological_process, setGO_biological_process] = useState("rgb(228,185,165)");
+  let [GO_biological_process, setGO_biological_process] = useState("rgb(254,230,145)");
   let [DGE_infection_and_immunity, setDGE_infection_and_immunity] = useState("rgb(228,185,165)");
   let [Tandemly, setTandemly] = useState("rgb(155,95,55)");
   let [Regulatory, setRegulatory] = useState("rgb(240,2,127)");
@@ -438,7 +436,8 @@ const Network = (props) => {
     // Change Layout
     const change_layout = (new_layout) => {
       if (new_layout == 'fcose') {
-        setLayout({name: 'fcose', nodeSeparation: 400, idealEdgeLength: edge => 300})
+        setLayout({name: 'fcose', nodeSeparation: 300, idealEdgeLength: edge => 150, 
+        nodeRepulsion: node => 18000,  edgeElasticity: edge => 0.01})
       } else {
         setLayout({name: new_layout})
       }  
