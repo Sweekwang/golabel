@@ -30,7 +30,6 @@ const Network = (props) => {
   let [Regulatory, setRegulatory] = useState("rgb(240,2,127)");  // Regulatory clusters
   let [Conservation, setConservation] = useState("rgb(190,174,212)");
   let [DGE_general, setDGE_general] = useState("rgb(203,178,196)");
-  let [molecular, setmolecular] = useState("rgb(203,178,196)"); // can remove later, supposed to be DGE mol func
   let [PPI, setPPI] = useState("rgb(56,108,176)");
   let [Coexp, setCoexp] = useState("gb(165,185,178)"); // coexp clusters
   let [DGE_growth, setDGE_growth] = useState("rgb(215,181,181)");
@@ -65,14 +64,14 @@ const Network = (props) => {
   // Egde Color
   let [edgeFilter, setEdgeFilter] = useState(false);
   let [defaultEdge, setdefaultEdge] = useState("rgb(132,132,132)");
-  let [between_grp8, setbetween_grp8] = useState("rgb(153,102,255)");
-  let [between_grp6, setbetween_grp6] = useState("rgb(179,222,105)");
-  let [between_grp7, setbetween_grp7] = useState("rgb(252,205,229)");
-  let [between_grp5, setbetween_grp5] = useState("rgb(253,180,98)");
-  let [between_grp4, setbetween_grp4] = useState("rgb(128,177,211)");
-  let [between_grp3, setbetween_grp3] = useState("rgb(251,128,114)");
-  let [between_grp2, setbetween_grp2] = useState("rgb(190,186,218)");
-  let [between_grp1, setbetween_grp1] = useState("rgb(255,255,179)");
+  let [between_grp8, setbetween_grp8] = useState("rgb(132,132,132)");
+  let [between_grp6, setbetween_grp6] = useState("rgb(132,132,132)");
+  let [between_grp7, setbetween_grp7] = useState("rgb(132,132,132)");
+  let [between_grp5, setbetween_grp5] = useState("rgb(132,132,132)");
+  let [between_grp4, setbetween_grp4] = useState("rgb(132,132,132)");
+  let [between_grp3, setbetween_grp3] = useState("rgb(132,132,132)");
+  let [between_grp2, setbetween_grp2] = useState("rgb(132,132,132)");
+  let [between_grp1, setbetween_grp1] = useState("rgb(132,132,132)");
 
       const stylesheet = [
         {
@@ -370,10 +369,6 @@ const Network = (props) => {
       setChangeNode(!changeNode);
     }
     // Change Color.
-    const updateColor = (color) => { // TODO: TO DELETE THIS FUNCTION ONCE EVERYTHING IS DONE.
-      setGO_biological_process(color.hex)
-    }
-
     const updateGO_biological_process = (color) => {
       setGO_biological_process(color.hex)
     }
@@ -396,10 +391,6 @@ const Network = (props) => {
 
     const updateDGE_general = (color) => {
       setDGE_general(color.hex)
-    }
-
-    const updatemolecular = (color) => {
-      setmolecular(color.hex)
     }
 
     const updatePPI = (color) => {
@@ -530,38 +521,6 @@ const Network = (props) => {
 
     const update_defaultEdge = (color) => {
       setdefaultEdge(color.hex)
-    }
-
-    const update_between_grp8= (color) => {
-      setbetween_grp8(color.hex)
-    }
-
-    const update_between_grp6 = (color) => {
-      setbetween_grp6(color.hex)
-    }
-
-    const update_between_grp7 = (color) => {
-      setbetween_grp7(color.hex)
-    }
-
-    const update_between_grp5 = (color) => {
-      setbetween_grp5(color.hex)
-    }
-
-    const update_between_grp4 = (color) => {
-      setbetween_grp4(color.hex)
-    }
-
-    const update_between_grp3= (color) => {
-      setbetween_grp3(color.hex)
-    }
-
-    const update_between_grp2= (color) => {
-      setbetween_grp2(color.hex)
-    }
-
-    const update_between_grp1= (color) => {
-      setbetween_grp1(color.hex)
     }
 
     // ============================================================
@@ -735,44 +694,6 @@ const Network = (props) => {
           <div className={classes.colorContainerItem}>
             <p>TPM features:</p>
             <CompactPicker color={TPM} onChangeComplete={updateTPM}/>
-          </div>
-        </div>}
-        {edgeFilter && <div className={classes.colorContainer}>
-          <div className={classes.colorContainerItem}>
-            <p>Default Egde:</p>
-            <CompactPicker color={defaultEdge} onChangeComplete={update_defaultEdge}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp8:</p>
-            <CompactPicker color={between_grp8} onChangeComplete={update_between_grp8}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp7:</p>
-            <CompactPicker color={between_grp7} onChangeComplete={update_between_grp7}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp6:</p>
-            <CompactPicker color={between_grp6} onChangeComplete={update_between_grp6}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp5:</p>
-            <CompactPicker color={between_grp5} onChangeComplete={update_between_grp5}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp4:</p>
-            <CompactPicker color={between_grp4} onChangeComplete={update_between_grp4}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp3:</p>
-            <CompactPicker color={between_grp3} onChangeComplete={update_between_grp3}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp2:</p>
-            <CompactPicker color={between_grp2} onChangeComplete={update_between_grp2}/>
-          </div>
-          <div className={classes.colorContainerItem}>
-            <p>between_grp1:</p>
-            <CompactPicker color={between_grp1} onChangeComplete={update_between_grp1}/>
           </div>
         </div>}
         <div className={classes.network}>
