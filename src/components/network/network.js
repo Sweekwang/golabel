@@ -289,7 +289,7 @@ const Network = (props) => {
           "selector" : "edge",
           style : {
             "line-color" : defaultEdge,
-            "width" : 2.0,
+            "width": "mapData(invert_ranks, 1, 27, 1, 10)",
             "target-arrow-shape" : "none",
             "content" : "",
             "source-arrow-shape" : "none",
