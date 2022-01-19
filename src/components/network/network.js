@@ -27,7 +27,7 @@ const Network = (props) => {
   let [GO_biological_process, setGO_biological_process] = useState("rgb(254,230,145)");
   let [DGE_infection_and_immunity, setDGE_infection_and_immunity] = useState("rgb(228,185,165)");
   let [Tandemly, setTandemly] = useState("rgb(155,95,55)");
-  let [Regulatory, setRegulatory] = useState("rgb(240,2,127)");
+  let [Regulatory, setRegulatory] = useState("rgb(240,2,127)");  // Regulatory clusters
   let [Conservation, setConservation] = useState("rgb(190,174,212)");
   let [DGE_general, setDGE_general] = useState("rgb(203,178,196)");
   let [molecular, setmolecular] = useState("rgb(203,178,196)"); // can remove later, supposed to be DGE mol func
@@ -374,7 +374,7 @@ const Network = (props) => {
       setGO_biological_process(color.hex)
     }
 
-    const updateGO_biological_proces = (color) => {
+    const updateGO_biological_process = (color) => {
       setGO_biological_process(color.hex)
     }
 
@@ -389,7 +389,138 @@ const Network = (props) => {
     const updateRegulatory = (color) => {
       setRegulatory(color.hex)
     }
-    
+
+    const updateConservation = (color) => {
+      setConservation(color.hex)
+    }
+
+    const updateDGE_general = (color) => {
+      setDGE_general(color.hex)
+    }
+
+    const updatemolecular = (color) => {
+      setmolecular(color.hex)
+    }
+
+    const updatePPI = (color) => {
+      setPPI(color.hex)
+    }
+
+    const updateCoexp = (color) => {
+      setCoexp(color.hex)
+    }
+
+    const updateDGE_growth = (color) => {
+      setDGE_growth(color.hex)
+    }
+
+    const updateDomains = (color) => {
+      setDomains(color.hex)
+    }
+
+    const updatenetwork = (color) => {
+      setnetwork(color.hex)
+    }
+
+    const updateDGE_stress = (color) => {
+      setDGE_stress(color.hex)
+    }
+
+    const updatePfam = (color) => {
+      setPfam(color.hex)
+    }
+
+    const updateDiurnal = (color) => {
+      setDiurnal(color.hex)
+    }
+
+    const updateMethlyated = (color) => {
+      setMethlyated(color.hex)
+    }
+
+    const updateTF_TG = (color) => {
+      setTF_TG(color.hex)
+    }
+
+    const updateTransmembrane = (color) => {
+      setTransmembrane(color.hex)
+    }
+
+    const updateGO_molecular_function = (color) => {
+      setGO_molecular_function(color.hex)
+    }
+
+    const updateSingle = (color) => {
+      setSingle(color.hex)
+    }
+
+    const updateAranet = (color) => {
+      setAranet(color.hex)
+    }
+
+    const updateDGE_light = (color) => {
+      setDGE_light(color.hex)
+    }
+
+    const updateGO_cellular_component = (color) => {
+      setGO_cellular_component(color.hex)
+    }
+
+    const updateAranet2 = (color) => {
+      setAranet2(color.hex)
+    }
+
+    const updateHomolog = (color) => {
+      setHomolog(color.hex)
+    }
+
+    const updateelement = (color) => {
+      setelement(color.hex)
+    }
+
+    const updatePhylostrata = (color) => {
+      setPhylostrata(color.hex)
+    }
+
+    const updateSPM = (color) => {
+      setSPM(color.hex)
+    }
+
+    const updatePPInetwork = (color) => {
+      setPPInetwork(color.hex)
+    }
+
+    const updateTWAS = (color) => {
+      setTWAS(color.hex)
+    }
+
+    const updateFamilies = (color) => {
+      setFamilies(color.hex)
+    }
+
+    const updateDisordered = (color) => {
+      setDisordered(color.hex)
+    }
+
+    const updateOrthogroups = (color) => {
+      setOrthogroups(color.hex)
+    }
+
+    const updateRegulatory2 = (color) => {
+      setRegulatory2(color.hex)
+    }
+
+    const updateBiochemical = (color) => {
+      setBiochemical(color.hex)
+    }
+
+    const updatePTMs = (color) => {
+      setPTMs(color.hex)
+    }
+
+    const updateTPM = (color) => {
+      setTPM(color.hex)
+    }
     // ============================================================
     // Change Edge Color
     const showEdgeFilter = () => {
@@ -463,7 +594,7 @@ const Network = (props) => {
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>
             <p>GO_biological_process:</p>
-            <CompactPicker color={GO_biological_process} onChangeComplete={updateGO_biological_proces}/>
+            <CompactPicker color={GO_biological_process} onChangeComplete={updateGO_biological_process}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_infection and immunity:</p>
@@ -479,131 +610,131 @@ const Network = (props) => {
           </div>
           <div className={classes.colorContainerItem}>
             <p>Conservation features:</p>
-            <CompactPicker color={Conservation} onChangeComplete={updateColor}/>
+            <CompactPicker color={Conservation} onChangeComplete={updateConservation}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_general molecular function:</p>
-            <CompactPicker color={DGE_general} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_general} onChangeComplete={updateDGE_general}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>PPI clusters:</p>
-            <CompactPicker color={PPI} onChangeComplete={updateColor}/>
+            <CompactPicker color={PPI} onChangeComplete={updatePPI}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Coexp network features:</p>
-            <CompactPicker color={Coexp} onChangeComplete={updateColor}/>
+            <CompactPicker color={Coexp} onChangeComplete={updateCoexp}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_growth and development:</p>
-            <CompactPicker color={DGE_growth} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_growth} onChangeComplete={updateDGE_growth}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Number of domains:</p>
-            <CompactPicker color={Domains} onChangeComplete={updateColor}/>
+            <CompactPicker color={Domains} onChangeComplete={updateDomains}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Coexp network features:</p>
-            <CompactPicker color={network} onChangeComplete={updateColor}/>
+            <CompactPicker color={network} onChangeComplete={updatenetwork }/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_stress and stimulus:</p>
-            <CompactPicker color={DGE_stress} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_stress} onChangeComplete={updateDGE_stress}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Pfam domains:</p>
-            <CompactPicker color={Pfam} onChangeComplete={updateColor}/>
+            <CompactPicker color={Pfam} onChangeComplete={updatePfam}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Diurnal timepoints:</p>
-            <CompactPicker color={Diurnal} onChangeComplete={updateColor}/>
+            <CompactPicker color={Diurnal} onChangeComplete={updateDiurnal}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Gene body methlyated:</p>
-            <CompactPicker color={Methlyated} onChangeComplete={updateColor}/>
+            <CompactPicker color={Methlyated} onChangeComplete={updateMethlyated}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>TF-TG properties:</p>
-            <CompactPicker color={TF_TG} onChangeComplete={updateColor}/>
+            <CompactPicker color={TF_TG} onChangeComplete={updateTF_TG}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Transmembrane helices:</p>
-            <CompactPicker color={Transmembrane} onChangeComplete={updateColor}/>
+            <CompactPicker color={Transmembrane} onChangeComplete={updateTransmembrane}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>GO_molecular_function:</p>
-            <CompactPicker color={GO_molecular_function} onChangeComplete={updateColor}/>
+            <CompactPicker color={GO_molecular_function} onChangeComplete={updateGO_molecular_function}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Single copy:</p>
-            <CompactPicker color={Single} onChangeComplete={updateColor}/>
+            <CompactPicker color={Single} onChangeComplete={updateSingle}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Aranet network features:</p>
-            <CompactPicker color={Aranet} onChangeComplete={updateColor}/>
+            <CompactPicker color={Aranet} onChangeComplete={updateAranet}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>DGE_light and circadian:</p>
-            <CompactPicker color={DGE_light} onChangeComplete={updateColor}/>
+            <CompactPicker color={DGE_light} onChangeComplete={updateDGE_light}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>GO_cellular_component:</p>
-            <CompactPicker color={GO_cellular_component} onChangeComplete={updateColor}/>
+            <CompactPicker color={GO_cellular_component} onChangeComplete={updateGO_cellular_component}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Aranet clusters:</p>
-            <CompactPicker color={Aranet2} onChangeComplete={updateColor}/>
+            <CompactPicker color={Aranet2} onChangeComplete={updateAranet2}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Homolog features:</p>
-            <CompactPicker color={Homolog} onChangeComplete={updateColor}/>
+            <CompactPicker color={Homolog} onChangeComplete={updateHomolog}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>cis-regulatory element names:</p>
-            <CompactPicker color={element} onChangeComplete={updateColor}/>
+            <CompactPicker color={element} onChangeComplete={updateelement}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Phylostrata:</p>
-            <CompactPicker color={Phylostrata} onChangeComplete={updateColor}/>
+            <CompactPicker color={Phylostrata} onChangeComplete={updatePhylostrata}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>SPM features:</p>
-            <CompactPicker color={SPM} onChangeComplete={updateColor}/>
+            <CompactPicker color={SPM} onChangeComplete={updateSPM}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>PPI network features:</p>
-            <CompactPicker color={PPInetwork} onChangeComplete={updateColor}/>
+            <CompactPicker color={PPInetwork} onChangeComplete={updatePPInetwork}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>TWAS features:</p>
-            <CompactPicker color={TWAS} onChangeComplete={updateColor}/>
+            <CompactPicker color={TWAS} onChangeComplete={updateTWAS}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>cis-regulatory element families</p>
-            <CompactPicker color={Families} onChangeComplete={updateColor}/>
+            <CompactPicker color={Families} onChangeComplete={updateFamilies}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Disordered domains regions:</p>
-            <CompactPicker color={Disordered} onChangeComplete={updateColor}/>
+            <CompactPicker color={Disordered} onChangeComplete={updateDisordered}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Orthogroups:</p>
-            <CompactPicker color={Orthogroups} onChangeComplete={updateColor}/>
+            <CompactPicker color={Orthogroups} onChangeComplete={updateOrthogroups}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Regulatory network features':</p>
-            <CompactPicker color={Regulatory2} onChangeComplete={updateColor}/>
+            <CompactPicker color={Regulatory2} onChangeComplete={updateRegulatory2}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Biochemical features:</p>
-            <CompactPicker color={Biochemical} onChangeComplete={updateColor}/>
+            <CompactPicker color={Biochemical} onChangeComplete={updateBiochemical}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>Protein PTMs:</p>
-            <CompactPicker color={PTMs} onChangeComplete={updateColor}/>
+            <CompactPicker color={PTMs} onChangeComplete={updatePTMs}/>
           </div>
           <div className={classes.colorContainerItem}>
             <p>TPM features:</p>
-            <CompactPicker color={TPM} onChangeComplete={updateColor}/>
+            <CompactPicker color={TPM} onChangeComplete={updateTPM}/>
           </div>
         </div>}
         {edgeFilter && <div className={classes.colorContainer}>
