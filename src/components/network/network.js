@@ -87,6 +87,8 @@ const Network = (props) => {
             "color" : "rgb(0,0,0)",
             "shape" : "roundrectangle",
             "text-opacity" : 1.0,
+            "text-wrap": "wrap",
+            "text-max-width": "100px",
             "border-width" : 0.0,
             "height" : 35.0,
             "font-family" : "SansSerif.plain",
