@@ -536,6 +536,13 @@ const Network = (props) => {
       }  
     }
 
+    const downloadPng = (cyToDownload) => {
+      // cy is the graph with the data
+      const png = cyToDownload.png()
+      // then you need to trigger the browser download. e.g. (i'm not sure if this will work)
+      window.location.href = png
+  }
+
     return(
       <Fragment>
         <div className={classes.buttondiv}>
@@ -550,7 +557,15 @@ const Network = (props) => {
               <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
               <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
           </Menu>
-
+          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons become too big*/}
+          <Menu menuButton={<MenuButton className={classes.lastdropbtn}>Change Layout</MenuButton>}>
+              <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
+              <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
+              <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
+              <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
+              <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
+              <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
+          </Menu>
         </div>
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>
