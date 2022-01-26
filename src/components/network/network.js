@@ -548,7 +548,6 @@ const Network = (props) => {
         <div className={classes.buttondiv}>
           <AButton onClick={changeNodeColorHandler}>Change Node Color</AButton>
           <AButton onClick={showEdgeFilter}>Change Edge Color</AButton>
-          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons become too big*/}
           <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
               <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
               <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
@@ -557,8 +556,8 @@ const Network = (props) => {
               <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
               <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
           </Menu>
-          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons become too big*/}
-          <Menu menuButton={<MenuButton className={classes.lastdropbtn}>Change Layout</MenuButton>}>
+          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons from the lib I used become too big*/}
+          <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
               <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
               <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
               <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>

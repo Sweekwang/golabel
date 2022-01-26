@@ -47,24 +47,9 @@
 
 .dropbtn{
     display: flex;
-    gap: 20px;
-    border: 0px;
-    background-color: #008CBA;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-}
-
-.lastdropbtn{
-    position: relative;
-    left: -20px;
-    display: flex;
-    gap: 20px;
+    grid-gap: 0px; /* Ensure right margin isn't too big */
+    gap: 0px; /* Ensure right margin isn't too big */
+    margin-right: -20px; /* Ensure right margin isn't too big */
     border: 0px;
     background-color: #008CBA;
     padding: 12px;
