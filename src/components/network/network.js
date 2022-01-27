@@ -12,7 +12,20 @@ import '@szhsin/react-menu/dist/transitions/slide.css';
 import { CompactPicker } from 'react-color';
 import Cytoscape from 'cytoscape';
 import fcose from 'cytoscape-fcose';
+import svg from 'cytoscape-svg';
+import jquery from 'jquery';
+import graphml from 'cytoscape-graphml';
 
+// If statements used here, otherwise webpage crashes when code is updated
+// But this is only a minor problem as it only affects locally modifying and running the webpage,
+// during production, the webpage will work
+if (typeof Cytoscape('core', 'graphml') == 'undefined') {
+  graphml(Cytoscape, jquery);
+  Cytoscape.use(graphml);
+}
+if (typeof Cytoscape('core', 'svg') == 'undefined') {
+  Cytoscape.use(svg);
+}
 Cytoscape.use(fcose);
 
 const Network = (props) => {
@@ -21,6 +34,7 @@ const Network = (props) => {
   let [sizeHeight, setSizeHeight] = useState(500);
   let [layout, setLayout] = useState({name: 'fcose', nodeSeparation: 300, idealEdgeLength: edge => 150, 
   nodeRepulsion: node => 18000,  edgeElasticity: edge => 0.01});
+  let [ext_cy, setCy] = useState(null);
 
   // CHANGE THE STATE OF THE COLOR:
   let [changeNode, setChangeNode] = useState(false);
@@ -536,11 +550,43 @@ const Network = (props) => {
       }  
     }
 
-    const downloadPng = (cyToDownload) => {
-      // cy is the graph with the data
-      const png = cyToDownload.png()
-      // then you need to trigger the browser download. e.g. (i'm not sure if this will work)
-      window.location.href = png
+    const downloadPng = (cyToDownload, picFormat) => {
+      if (picFormat == 'png') {
+        const png = cyToDownload.png()
+        var a = document.createElement("a"); //Create <a>
+        a.href = png
+        a.download = "local_network.png"; //File name Here
+        a.click(); //Download file
+      } else if (picFormat == 'jpg') {
+        const jpg = cyToDownload.jpg()
+        var a = document.createElement("a"); //Create <a>
+        a.href = jpg
+        a.download = "local_network.jpg"; //File name Here
+        a.click(); //Download file
+      } else if (picFormat == 'svg') {
+        // console.log("download func called") // For checking only
+        const svgPic = cyToDownload.svg()
+        var svgBlob = new Blob([svgPic], {type:"image/svg+xml;charset=utf-8"});
+        var svgUrl = URL.createObjectURL(svgBlob);
+        // console.log(svgUrl) // For checking only
+        var a = document.createElement("a"); //Create <a>
+        a.href = svgUrl
+        a.download = "local_network.svg"; //File name Here
+        a.click(); //Download file
+      } else if (picFormat == 'graphml') {
+        const graphString = cyToDownload.graphml();
+        var a = document.createElement('a');
+        a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(graphString));
+        a.setAttribute('download', 'local_network.graphml');
+        a.click();
+      } else if (picFormat == 'json') {
+        const graphString = JSON.stringify(cyToDownload.json(), null, 2);
+        var a = document.createElement('a');
+        a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(graphString));
+        a.setAttribute('download', 'local_network.json');
+        a.click();
+      }
+      
   }
 
     return(
@@ -556,14 +602,12 @@ const Network = (props) => {
               <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
               <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
           </Menu>
-          {/*This needs to be the last button, otherwise the formatting looks weird, gaps between buttons from the lib I used become too big*/}
-          <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
-              <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
-              <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
-              <MenuItem onClick={() => change_layout('circle')}>Circle </MenuItem>
-              <MenuItem onClick={() => change_layout('concentric')}>Concentric</MenuItem>
-              <MenuItem onClick={() => change_layout('fcose')}>Fcose</MenuItem>
-              <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
+          <Menu menuButton={<MenuButton className={classes.dropbtn}>Download Network</MenuButton>}>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'png')}>PNG</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'jpg')}>JPG</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'svg')}>SVG</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'graphml')}>GRAPHML</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'json')}>JSON</MenuItem>
           </Menu>
         </div>
         {changeNode && <div className={classes.colorContainer}>
@@ -722,6 +766,7 @@ const Network = (props) => {
                 cy.on('add', 'node', _evt => {
                     cy.layout(layout).run()
                     cy.fit()
+                    setCy(cy)
                 })
               }
               stylesheet={stylesheet}
