@@ -166,7 +166,7 @@ const TableInfo = (props) => {
         </div>
 
         {renderPdfLink ? <PDFDownloadLink document={<MyDocument />} fileName="gotool.pdf">
-          <button class="dropbtn"> Download </button> 
+          <button class="dropbtn"> Download </button> {/*Probably a hack to modify formatting*/}
         </PDFDownloadLink> : null}
         </div>
       </Layout>
