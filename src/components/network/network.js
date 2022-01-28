@@ -3,6 +3,7 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
 import classes from './network.module.css';
 import {
   Menu,
@@ -383,7 +384,6 @@ const Network = (props) => {
     }
 
     const changeNodeColorHandler = () => {
-      setEdgeFilter(false);
       setChangeNode(!changeNode);
     }
     // Change Color.
@@ -591,6 +591,13 @@ const Network = (props) => {
       
   }
 
+  const edgeSlider = styled(Slider)({
+    '& .MuiSlider-thumb': {
+      width: 20,
+      height: 20
+    },
+  });
+
     return(
       <Fragment>
         <div className={classes.buttondiv}>
@@ -613,7 +620,15 @@ const Network = (props) => {
           </Menu>
           <Box width={200}>
             <span>Edge filter</span>
-            <Slider 
+            <Slider
+              sx={{
+                '& .MuiSlider-thumb': {
+                  height: '20px', width: '20px'
+                },
+                '& .MuiSlider-rail': {
+                  width: '200px'
+                },
+              }} 
               defaultValue={1} 
               aria-label="Default" 
               step={0.01} m
