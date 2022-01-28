@@ -532,8 +532,13 @@ const Network = (props) => {
     }
     // ============================================================
     // Filter Edge Weight
-    const edgeWeightFilter = (num) => {
-      setEdgeFilter(number);
+    const edgeWeightFilter = (cyToDownload, num) => {
+      setEdgeFilter(num);
+      cyToDownload.edges("[invert_ranks<" + edgeFilter + "]").style('display', 'none');
+      cyToDownload.edges("[invert_ranks>=" + edgeFilter + "]").style('display', 'element');
+      var sel_edges = cyToDownload.edges("[invert_ranks>=" + edgeFilter + "]");
+      cyToDownload.nodes().not(sel_edges.connectedNodes()).style('display', 'none');
+      sel_edges.connectedNodes().style('display', 'element');
     }
 
     // ============================================================
@@ -619,11 +624,11 @@ const Network = (props) => {
               }} 
               defaultValue={1} 
               aria-label="Default" 
-              step={0.01} m
-              in={1} 
+              step={0.01}
+              min={1} 
               max={27} 
-              //valueLabelDisplay="auto" 
-              valueLabelDisplay="on"
+              valueLabelDisplay="auto" 
+              onChange={(_, newValue) => edgeWeightFilter(ext_cy, newValue)}
             /> 
           </Box>
         </div>
