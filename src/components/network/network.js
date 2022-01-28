@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 import classes from './network.module.css';
 import {
   Menu,
@@ -592,8 +594,8 @@ const Network = (props) => {
     return(
       <Fragment>
         <div className={classes.buttondiv}>
-          <AButton onClick={changeNodeColorHandler}>Change Node Color</AButton>
-          <AButton onClick={showEdgeFilter}>Change Edge Color</AButton>
+          <AButton className={classes.aModButton} onClick={changeNodeColorHandler}>Change Node Color</AButton>
+          {/*<AButton onClick={showEdgeFilter}>Change Edge Color</AButton>*/}
           <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
               <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
               <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
@@ -603,12 +605,23 @@ const Network = (props) => {
               <MenuItem onClick={() => change_layout('grid')}>Grid</MenuItem>
           </Menu>
           <Menu menuButton={<MenuButton className={classes.dropbtn}>Download Network</MenuButton>}>
-              <MenuItem onClick={() => downloadPng(ext_cy, 'png')}>PNG</MenuItem>
-              <MenuItem onClick={() => downloadPng(ext_cy, 'jpg')}>JPG</MenuItem>
-              <MenuItem onClick={() => downloadPng(ext_cy, 'svg')}>SVG</MenuItem>
-              <MenuItem onClick={() => downloadPng(ext_cy, 'graphml')}>GRAPHML</MenuItem>
-              <MenuItem onClick={() => downloadPng(ext_cy, 'json')}>JSON</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'png')}>png</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'jpg')}>jpg</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'svg')}>svg</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'graphml')}>graphml</MenuItem>
+              <MenuItem onClick={() => downloadPng(ext_cy, 'json')}>json</MenuItem>
           </Menu>
+          <Box width={200}>
+            <span>Edge filter</span>
+            <Slider 
+              defaultValue={1} 
+              aria-label="Default" 
+              step={0.01} m
+              in={1} 
+              max={27} 
+              valueLabelDisplay="auto" 
+            /> 
+          </Box>
         </div>
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>

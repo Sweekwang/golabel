@@ -45,6 +45,14 @@
     gap: 20px
 }
 
+.aModButton{
+    background-color: #008CBA;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
 .dropbtn{
     display: flex;
     grid-gap: 0px; /* Ensure right margin isn't too big */
@@ -52,7 +60,7 @@
     margin-right: -20px; /* Ensure right margin isn't too big */
     border: 0px;
     background-color: #008CBA;
-    padding: 12px;
+    padding: 16px;
     color: white;
     text-decoration: none;
     border-radius: 6px;
