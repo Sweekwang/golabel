@@ -78,8 +78,8 @@ const Network = (props) => {
   let [PTMs, setPTMs] = useState("rgb(203,23,137)");
   let [TPM, setTPM] = useState("rgb(191,91,23)");
 
-  // Egde Color
-  let [edgeFilter, setEdgeFilter] = useState(false);
+  // Egde Color and Weight Filter
+  let [edgeFilter, setEdgeFilter] = useState(0);
   let [defaultEdge, setdefaultEdge] = useState("rgb(132,132,132)");
   let [between_grp8, setbetween_grp8] = useState("rgb(132,132,132)");
   let [between_grp6, setbetween_grp6] = useState("rgb(132,132,132)");
@@ -531,14 +531,9 @@ const Network = (props) => {
       setTPM(color.hex)
     }
     // ============================================================
-    // Change Edge Color
-    const showEdgeFilter = () => {
-      setChangeNode(false);
-      setEdgeFilter(!edgeFilter);
-    }
-
-    const update_defaultEdge = (color) => {
-      setdefaultEdge(color.hex)
+    // Filter Edge Weight
+    const edgeWeightFilter = (num) => {
+      setEdgeFilter(number);
     }
 
     // ============================================================
@@ -591,13 +586,6 @@ const Network = (props) => {
       
   }
 
-  const edgeSlider = styled(Slider)({
-    '& .MuiSlider-thumb': {
-      width: 20,
-      height: 20
-    },
-  });
-
     return(
       <Fragment>
         <div className={classes.buttondiv}>
@@ -634,7 +622,8 @@ const Network = (props) => {
               step={0.01} m
               in={1} 
               max={27} 
-              valueLabelDisplay="auto" 
+              //valueLabelDisplay="auto" 
+              valueLabelDisplay="on"
             /> 
           </Box>
         </div>

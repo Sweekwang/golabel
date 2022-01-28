@@ -75,3 +75,8 @@
     color: #2f5d62;
     cursor:pointer; 
 }
+
+/*Ensures that my text in my edge filter is correctly formatted*/
+span:nth-of-type(1) {
+    width: auto;
+}
