@@ -77,8 +77,8 @@ const Features = () => {
             return dataToSort;
         });
     }
-    
-
+    //node[0]
+    //console.log(node);
     return(
         <MainLayout>
             <Layout className={classes.layout}>
@@ -105,11 +105,53 @@ const Features = () => {
                     }
                 
                 </p>
-                
+
                 <form><MaterialTable
                     data = {node}
                     columns = {[
-                        {field:"category",title:"Category",lookup:{"-":"-","Aranet clusters":"Aranet clusters","Aranet network features":"Aranet network features","Biochemical features":"Biochemical features","Coexp clusters":"Coexp clusters","Coexp network features":"Coexp network features","Conservation features":"Conservation features","DGE_general molecular function":"DGE_general molecular function","DGE_growth and development":"DGE_growth and development","DGE_infection and immunity":"DGE_infection and immunity","DGE_light and circadian":"DGE_light and circadian","DGE_stress and stimulus":"DGE_stress and stimulus","Disordered domains regions":"Disordered domains regions","Diurnal timepoints":"Diurnal timepoints","GO_molecular_function":"GO_molecular_function","Homolog features":"Homolog features","Number of domains":"Number of domains","Orthogroups":"Orthogroups","PPI clusters":"PPI clusters","PPI network features":"PPI network features","Pfam domains":"Pfam domains","Phylostrata":"Phylostrata","Protein PTMs":"Protein PTMs","Regulatory clusters":"Regulatory clusters","Regulatory network features":"Regulatory network features","SPM features":"SPM features","Single copy":"Single copy","TF-TG properties":"TF-TG properties","TPM features":"TPM features","TWAS features":"TWAS features","Tandemly duplicated":"Tandemly duplicated","Transmembrane helices":"Transmembrane helices","cis-regulatory element families":"cis-regulatory element families","cis-regulatory element names":"cis-regulatory element names"}},
+                        {field:"category",title:"Category",
+                        lookup:{
+                            "Aranet, functional gene network clusters (agi)":"Aranet, functional gene network clusters (agi)",
+                            "Aranet, functional gene network features (agn)":"Aranet, functional gene network features (agn)",
+                            "Biochemical (pep)":"Biochemical (pep)",
+                            "cis-regulatory element families (cif)":"cis-regulatory element families (cif)",
+                            "cis-regulatory element names (cin)":"cis-regulatory element names (cin)",
+                            "Conservation (con)":"Conservation (con)",
+                            "DGE_general molecular function (dge)":"DGE_general molecular function (dge)",
+                            "DGE_growth and development (dge)":"DGE_growth and development (dge)",
+                            "DGE_infection and immunity (dge)":"DGE_infection and immunity (dge)",
+                            "DGE_light and circadian (dge)":"DGE_light and circadian (dge)",
+                            "DGE_stress and stimulus (dge)":"DGE_stress and stimulus (dge)",
+                            "Epigenetics (gbm)":"Epigenetics (gbm)",
+                            "Evolution (ntd)":"Evolution (ntd)",
+                            "Gene coexpression clusters (cid)":"Gene coexpression clusters (cid)",
+                            "Gene coexpression network features (coe)":"Gene coexpression network features (coe)",
+                            "Gene expression (spm)":"Gene expression (spm)",
+                            "Gene expression (tpm)":"Gene expression (tpm)",
+                            "Gene expression, diurnal amplitude (dia)":"Gene expression, diurnal amplitude (dia)",
+                            "Gene expression, diurnal timepoint (dit)":"Gene expression, diurnal timepoint (dit)",
+                            "Gene family (ort)":"Gene family (ort)",
+                            "Gene regulatory network clusters (tti)":"Gene regulatory network clusters (tti)",
+                            "Gene regulatory network features (ttr)":"Gene regulatory network features (ttr)",
+                            "Genome wide association (gwa)":"Genome wide association (gwa)",
+                            "Genomic information (sin)":"Genomic information (sin)",
+                            "Genomic information (tan)":"Genomic information (tan)",
+                            "GO_BP terms, experimental annotation (go)":"GO_BP terms, experimental annotation (go)",
+                            "GO_CC terms, experimental annotation (go)":"GO_CC terms, experimental annotation (go)",
+                            "GO_MF terms, experimental annotation (go)":"GO_MF terms, experimental annotation (go)",
+                            "Homologs in other speceies (hom)":"Homologs in other speceies (hom)",
+                            "Phylostrata (phy)":"Phylostrata (phy)",
+                            "Protein domain (mob)":"Protein domain (mob)",
+                            "Protein domain (num)":"Protein domain (num)",
+                            "Protein domain (pfa)":"Protein domain (pfa)",
+                            "Protein domain (tmh)":"Protein domain (tmh)",
+                            "Protein post-translation modifications (ptm)":"Protein post-translation modifications (ptm)",
+                            "Protein protein interaction, PPI network clusters (pid)":"Protein protein interaction, PPI network clusters (pid)",
+                            "Protein protein interaction, PPI network features (ppi)":"Protein protein interaction, PPI network features (ppi)",
+                            "Transcription factor-target gene features (ttf)":"Transcription factor-target gene features (ttf)",
+                            "Transcriptome wide association (twa)":"Transcriptome wide association (twa)",
+                            }
+                        },
                         {field:"feature",title:"Feature Name",filtering:false,render:rowData=>{
                             var name = rowData.feature;
                             if(name.includes("dge_")) {

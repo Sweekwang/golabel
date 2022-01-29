@@ -3,7 +3,6 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import { styled } from '@mui/material/styles';
 import classes from './network.module.css';
 import {
   Menu,
@@ -552,6 +551,7 @@ const Network = (props) => {
       }  
     }
 
+    // Download local network in various formats
     const downloadPng = (cyToDownload, picFormat) => {
       if (picFormat == 'png') {
         const png = cyToDownload.png()
@@ -561,20 +561,20 @@ const Network = (props) => {
         a.click(); //Download file
       } else if (picFormat == 'jpg') {
         const jpg = cyToDownload.jpg()
-        var a = document.createElement("a"); //Create <a>
+        var a = document.createElement("a");
         a.href = jpg
-        a.download = "local_network.jpg"; //File name Here
-        a.click(); //Download file
+        a.download = "local_network.jpg";
+        a.click();
       } else if (picFormat == 'svg') {
         // console.log("download func called") // For checking only
         const svgPic = cyToDownload.svg()
         var svgBlob = new Blob([svgPic], {type:"image/svg+xml;charset=utf-8"});
         var svgUrl = URL.createObjectURL(svgBlob);
         // console.log(svgUrl) // For checking only
-        var a = document.createElement("a"); //Create <a>
+        var a = document.createElement("a");
         a.href = svgUrl
-        a.download = "local_network.svg"; //File name Here
-        a.click(); //Download file
+        a.download = "local_network.svg";
+        a.click();
       } else if (picFormat == 'graphml') {
         const graphString = cyToDownload.graphml();
         var a = document.createElement('a');
@@ -595,7 +595,6 @@ const Network = (props) => {
       <Fragment>
         <div className={classes.buttondiv}>
           <AButton className={classes.aModButton} onClick={changeNodeColorHandler}>Change Node Color</AButton>
-          {/*<AButton onClick={showEdgeFilter}>Change Edge Color</AButton>*/}
           <Menu menuButton={<MenuButton className={classes.dropbtn}>Change Layout</MenuButton>}>
               <MenuItem onClick={() => change_layout('random')}>Random</MenuItem>
               <MenuItem onClick={() => change_layout('breadthfirst')}>Breadthfirst</MenuItem>
