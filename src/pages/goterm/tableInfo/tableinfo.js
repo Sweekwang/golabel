@@ -130,7 +130,7 @@ const TableInfo = (props) => {
                 <Text style={[styles.type,styles.rowText]}>{selectedFeaturesType[index2]}</Text>
                 <Text style={[styles.id,styles.rowText]}>{selectedFeatures[index2]}</Text>
                 <Text style={[styles.description,styles.rowText]}>{selectedFeaturesDescription[index2]}</Text>
-                <Text style={[styles.feature]}>{naiveRound(selectedScores[index2], 4)}</Text>
+                <Text style={[styles.feature]}>{naiveRound(selectedScores[index2], 2)}</Text>
               </View>
               )
             )}
@@ -198,7 +198,7 @@ const TableInfo = (props) => {
                 <td className={classes.capitalize}>
                   {selectedFeaturesDescription[index2]}
                 </td>
-                <td>{naiveRound(selectedScores[index2], 4)}</td>
+                <td>{naiveRound(selectedScores[index2], 2)}</td>
               </tr>
             )
           )}

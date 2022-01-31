@@ -44887,7 +44887,7 @@
     },
     {
         "category": "Homologs in other speceies (hom)",
-        "feature": "hom_Ginkbiloba",
+        "feature": "hom_Ginkgo_biloba" ,
         "description": "Presence of A. thaliana homolog in 23 species (plants and algae)",
         "id": "-"
     },
