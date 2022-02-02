@@ -7,12 +7,13 @@ import Layout from '../../../components/layout/componentLayout/Layout';
 
 const TableInfo = (props) => {
   // Props:
-  //        - label
+  //      - label
   //      - index
   //      - features
   //      - featuresType
   //      - featuresDescription
   //      - scores
+  //      - FRS
   let index = props.indexes;
   let [selectedFeaturesLength, setselectedFeaturesLength] = useState(25);
   let selectedFeatures = Object.values(props.features)[index];
@@ -21,6 +22,7 @@ const TableInfo = (props) => {
     index
   ];
   let selectedScores = Object.values(props.scores)[index];
+  let selectedFRS = Object.values(props.FRS)[index];
 
   const updateLength = (size) => {
     setselectedFeaturesLength(size)
@@ -42,7 +44,7 @@ const TableInfo = (props) => {
   const styles = StyleSheet.create({
     page: {
       flexDirection: 'row',
-      padding: 60,
+      padding: 50,
       flexWrap: 'wrap'
     },
     logo: {
@@ -81,27 +83,36 @@ const TableInfo = (props) => {
       height: '100%'
     },
     no: {
-      width: '8%',
+      width: '6%',
       padding: '2, 4'
     },
     type: {
       width: '25%',
-      padding: '2 12',
+      padding: '2 7',
     },
     id: {
-      width: '20.8%',
-      padding: '2 12',
+      width: '15%',
+      padding: '2 7',
     },
     description: {
-      width: '32%',
-      padding: '2 12',
+      width: '30%',
+      padding: '2 7',
     },
     feature: {
-      width: '14.2%',
-      padding: '2 8',
+      width: '13.4%',
+      padding: '2 7',
       height: '100%'
-    }
+    },
+    frs: {
+      width: '14.2%',
+      padding: '2 7',
+      height: '100%'
+    },
   });
+
+  // Checking FRS
+  console.log("FRS");
+  console.log(selectedFRS);
 
   //// Create Document Component
   const MyDocument = () => (
@@ -115,10 +126,11 @@ const TableInfo = (props) => {
         <View tyle={styles.tableContainer}>
           <View style={styles.rowHeader} >
             <Text style={[styles.no,styles.rowText]}>No</Text>
-            <Text style={[styles.type,styles.rowText]}>Type</Text>
-            <Text style={[styles.id,styles.rowText]}>ID</Text>
+            <Text style={[styles.type,styles.rowText]}>Category</Text>
+            <Text style={[styles.id,styles.rowText]}>Name</Text>
             <Text style={[styles.description,styles.rowText]}>Description</Text>
-            <Text style={[styles.feature]}>Feature Importance</Text>
+            <Text style={[styles.feature,styles.rowText]}>Feature Importance</Text>
+            <Text style={[styles.frs]}>Feature Rank Score (FRS)</Text>
           </View>
         </View>
 
@@ -130,7 +142,8 @@ const TableInfo = (props) => {
                 <Text style={[styles.type,styles.rowText]}>{selectedFeaturesType[index2]}</Text>
                 <Text style={[styles.id,styles.rowText]}>{selectedFeatures[index2]}</Text>
                 <Text style={[styles.description,styles.rowText]}>{selectedFeaturesDescription[index2]}</Text>
-                <Text style={[styles.feature]}>{naiveRound(selectedScores[index2], 2)}</Text>
+                <Text style={[styles.feature,styles.rowText]}>{naiveRound(selectedScores[index2], 2)}</Text>
+                <Text style={[styles.frs]}>{selectedFRS[index2]}</Text>
               </View>
               )
             )}
@@ -165,7 +178,7 @@ const TableInfo = (props) => {
           </div>
         </div>
 
-        {renderPdfLink ? <PDFDownloadLink document={<MyDocument />} fileName="gotool.pdf">
+        {renderPdfLink ? <PDFDownloadLink document={<MyDocument />} fileName="feature_importance.pdf">
           <button class="dropbtn"> Download </button> {/*Probably a hack to modify formatting*/}
         </PDFDownloadLink> : null}
         </div>
@@ -176,16 +189,19 @@ const TableInfo = (props) => {
           <tr>
             <th>No</th>
             <th>
-              Type<Tooltips>Feature ID</Tooltips>
+              Category<Tooltips>Category of feature</Tooltips>
             </th>
             <th>
-              ID<Tooltips>Feature ID</Tooltips>
+              Name<Tooltips>Name of feature</Tooltips>
             </th>
             <th>
-              Description<Tooltips>Feature ID</Tooltips>
+              Description<Tooltips>Detailed description of feature</Tooltips>
             </th>
             <th>
-              Feature importance <Tooltips>Helper Text</Tooltips>
+              Feature importance <Tooltips>Prediction importance</Tooltips>
+            </th>
+            <th className={classes.frs}>
+              Feature rank score (FRS) <Tooltips>Extent of prediction influence</Tooltips>
             </th>
           </tr>
 
@@ -199,6 +215,7 @@ const TableInfo = (props) => {
                   {selectedFeaturesDescription[index2]}
                 </td>
                 <td>{naiveRound(selectedScores[index2], 2)}</td>
+                <td>{selectedFRS[index2]}</td>
               </tr>
             )
           )}

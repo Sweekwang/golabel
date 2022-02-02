@@ -19,6 +19,7 @@ const GoTerm = () => {
   const [features, setFeatures] = useState([]);
   const [featuresDescription, setFeaturesDescription] = useState([]);
   const [scores, setScores] = useState([]);
+  const [FRS, setFRS] = useState([]);
   const [oob_f1, setoob_f1] = useState("-");
   const [network, setNetwork] = useState([]);
 
@@ -53,10 +54,15 @@ const GoTerm = () => {
         setFeatures(data.features);
         setFeaturesDescription(data.featuresDesciption);
         setScores(data.scores);
+        setFRS(data.FRS);
         setLabel([goId]);
         setIsLoading(false);
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
+
+        // Checking FRS
+        //console.log("FRS");
+        //console.log(FRS);
 
         const network = [...data.network.start, ...data.network.end];
         console.log("Network")
@@ -138,6 +144,7 @@ useEffect(() => {
             featuresType = {featuresType}
             featuresDescription = {featuresDescription}
             scores = {scores}
+            FRS = {FRS}
           />
         );
       })}

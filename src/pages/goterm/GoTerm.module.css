@@ -65,6 +65,10 @@
     
 }
 
+.frs{
+    max-width: 150px;
+}
+
 tr:nth-child(even) {
     background-color: #dddddd;
     border-collapse: collapse;
