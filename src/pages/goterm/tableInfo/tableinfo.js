@@ -111,8 +111,8 @@ const TableInfo = (props) => {
   });
 
   // Checking FRS
-  console.log("FRS");
-  console.log(selectedFRS);
+  //console.log("FRS");
+  //console.log(selectedFRS);
 
   //// Create Document Component
   const MyDocument = () => (

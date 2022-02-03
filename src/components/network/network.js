@@ -37,6 +37,7 @@ const Network = (props) => {
   let [layout, setLayout] = useState({name: 'fcose', nodeSeparation: 300, idealEdgeLength: edge => 150, 
   nodeRepulsion: node => 18000,  edgeElasticity: edge => 0.01});
   let [ext_cy, setCy] = useState(null);
+  let [my_cursor, setCursor] = useState('default');
 
   // CHANGE THE STATE OF THE COLOR:
   let [changeNode, setChangeNode] = useState(false);
@@ -550,7 +551,22 @@ const Network = (props) => {
         setLayout({name: new_layout})
       }  
     }
-
+    
+    // Change mouse cursor
+    const changeCursor = (new_cursor) => {
+      setCursor(new_cursor)
+    }
+    
+    /*
+    const changeCursor = () => {
+      setCursor(prevState => {
+        if(prevState === 'default'){
+          return 'pointer';
+        }
+        return 'default';
+      });
+    }
+    */
     // Download local network in various formats
     const downloadPng = (cyToDownload, picFormat) => {
       if (picFormat == 'png') {
@@ -782,14 +798,29 @@ const Network = (props) => {
               elements={props.elements} 
               style={ {  
                 height: sizeHeight + 'px',
+                cursor: my_cursor
               } } 
-              cy={cy =>
+              cy={cy => {
                 cy.on('add', 'node', _evt => {
                     cy.layout(layout).run()
                     cy.fit()
                     setCy(cy)
                 })
-              }
+                cy.on('mouseover', 'node', () => {
+                  //changeCursor()
+                  changeCursor('pointer')
+                  //console.log(setCursor)
+                  //console.log(10)
+                });
+                
+                cy.on('mouseout', 'node', () => {
+                  changeCursor('default')
+                  //changeCursor()
+                  //console.log(5)
+                });
+                
+                
+              }}
               stylesheet={stylesheet}
               layout={layout} 
               pan={ { x: x, y: 80 } }

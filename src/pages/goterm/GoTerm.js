@@ -30,7 +30,7 @@ const GoTerm = () => {
   // Get data from database
   useEffect(() => {
     const data = { labels: goId };
-    console.log(data);
+    //console.log(data);
 
     fetch('https://go-label-316405.oa.r.appspot.com/api/go', {
       method: 'POST',
