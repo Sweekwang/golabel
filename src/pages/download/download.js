@@ -22,7 +22,7 @@ const Download = () => {
                     </div>
 
                     <div className={classes.row}>
-                        <p className={classes.row1}>Go Modes</p>
+                        <p className={classes.row1}>Go Models</p>
                         <p className={classes.row2}>All trained GO models</p>
                         <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/go_model.zip">Download (2.68 GB)</a></p>
                     </div>
@@ -35,8 +35,8 @@ const Download = () => {
 
                     <div className={classes.row}>
                         <p className={classes.row1}>Others Model</p>
-                        <p className={classes.row2}>All trained models include ... ... ...</p>
-                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/other_model.zip">Download (0 KB)</a></p>
+                        <p className={classes.row2}>All trained models include job, agi and tti<p>
+                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/other_model.zip">Download (1.68 GB)</a></p>
                     </div>
 
                     <div className={classes.row}>
