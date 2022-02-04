@@ -15,6 +15,33 @@
     right: 42px;
 }
 
+.btnNodeFC{
+    position: absolute;
+    bottom: 47px;
+    left: 7px;
+    background-color: #ffffff;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+}
+
+.btnNodeN{
+    position: absolute;
+    bottom: 27px;
+    left: 7px;
+    background-color: #ffffff;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+}
+
+.btnNodeFRS{
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+    background-color: #ffffff;
+    padding: 0px;
+    color: rgb(0, 0, 0);
+}
+
 .colorContainer{
     display: flex;
     flex-direction: row;

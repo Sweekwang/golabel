@@ -125,7 +125,10 @@ useEffect(() => {
             <p><b>oob_f1</b>: {oob_f1}</p>
           </div>
           <Fragment>
-              <h2 className={classes.networkH2}>Network</h2>
+              <div>
+                <h2 className={classes.networkH2}>Network</h2>
+                <p className={classes.networkP}>Click on node to display selected node attributes in the bottom left corner of the window</p>
+              </div>
           { (network.length > 0) ?
                 <Network 
                   elements={network} 

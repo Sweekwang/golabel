@@ -1,6 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect, useRef} from 'react';
+import ReactDOM from 'react-dom';
 import CytoscapeComponent from 'react-cytoscapejs';
 import AButton from '../button/aButton';
+import BButton from '../button/bButton';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import classes from './network.module.css';
@@ -38,6 +40,9 @@ const Network = (props) => {
   nodeRepulsion: node => 18000,  edgeElasticity: edge => 0.01});
   let [ext_cy, setCy] = useState(null);
   let [my_cursor, setCursor] = useState('default');
+  let [selectedNode, setSelectedNode] = useState(null); // Node name
+  let [selectedNodeFC, setSelectedNodeFC] = useState(null); // Node feature category
+  let [selectedNodeFRS, setSelectedNodeFRS] = useState(null); // Node FRS
 
   // CHANGE THE STATE OF THE COLOR:
   let [changeNode, setChangeNode] = useState(false);
@@ -81,14 +86,6 @@ const Network = (props) => {
   // Egde Color and Weight Filter
   let [edgeFilter, setEdgeFilter] = useState(0);
   let [defaultEdge, setdefaultEdge] = useState("rgb(132,132,132)");
-  let [between_grp8, setbetween_grp8] = useState("rgb(132,132,132)");
-  let [between_grp6, setbetween_grp6] = useState("rgb(132,132,132)");
-  let [between_grp7, setbetween_grp7] = useState("rgb(132,132,132)");
-  let [between_grp5, setbetween_grp5] = useState("rgb(132,132,132)");
-  let [between_grp4, setbetween_grp4] = useState("rgb(132,132,132)");
-  let [between_grp3, setbetween_grp3] = useState("rgb(132,132,132)");
-  let [between_grp2, setbetween_grp2] = useState("rgb(132,132,132)");
-  let [between_grp1, setbetween_grp1] = useState("rgb(132,132,132)");
 
       const stylesheet = [
         {
@@ -322,53 +319,7 @@ const Network = (props) => {
             "line-style" : "solid",
             "font-size" : 10
           }
-        }, {
-          "selector" : "edge[interaction = 'between_grp8']",
-          style : {
-            "line-color" : between_grp8
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp7']",
-          style : {
-            "line-color" : between_grp7
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp6']",
-          style : {
-            "line-color" : between_grp6
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp5']",
-          style : {
-            "line-color" : between_grp5
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp4']",
-          style : {
-            "line-color" : between_grp4
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp3']",
-          style : {
-            "line-color" : between_grp3
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp2']",
-          style : {
-            "line-color" : between_grp2
-          }
-        }, {
-          "selector" : "edge[interaction = 'between_grp1']",
-          style : {
-            "line-color" : between_grp1
-          }
-        }, {
-          "selector" : "edge:selected",
-          style : {
-            "line-color" : "rgb(255,0,0)"
-          }
         }
-        
       ];
     
     const largehandler = () => {
@@ -556,17 +507,7 @@ const Network = (props) => {
     const changeCursor = (new_cursor) => {
       setCursor(new_cursor)
     }
-    
-    /*
-    const changeCursor = () => {
-      setCursor(prevState => {
-        if(prevState === 'default'){
-          return 'pointer';
-        }
-        return 'default';
-      });
-    }
-    */
+
     // Download local network in various formats
     const downloadPng = (cyToDownload, picFormat) => {
       if (picFormat == 'png') {
@@ -604,7 +545,6 @@ const Network = (props) => {
         a.setAttribute('download', 'local_network.json');
         a.click();
       }
-      
   }
 
     return(
@@ -793,7 +733,7 @@ const Network = (props) => {
             <CompactPicker color={TPM} onChangeComplete={updateTPM}/>
           </div>
         </div>}
-        <div className={classes.network}>
+        <div className={classes.network} >
           <CytoscapeComponent 
               elements={props.elements} 
               style={ {  
@@ -806,20 +746,27 @@ const Network = (props) => {
                     cy.fit()
                     setCy(cy)
                 })
-                cy.on('mouseover', 'node', () => {
-                  //changeCursor()
+                cy.on('mouseover', 'node', (evt) => {
                   changeCursor('pointer')
-                  //console.log(setCursor)
-                  //console.log(10)
                 });
-                
-                cy.on('mouseout', 'node', () => {
+                cy.on('mouseout', 'node', (evt) => {
                   changeCursor('default')
-                  //changeCursor()
-                  //console.log(5)
                 });
-                
-                
+                cy.on('tap', 'node', function (evt) {
+                  setSelectedNodeFC(evt.target.data('feat_category'))
+                  if (evt.target.data('name').startsWith('go_')) {
+                    const words = evt.target.data('name').split('go_');
+                    setSelectedNode(words[1])
+                  } else if (evt.target.data('name').startsWith('dge_')) {
+                    const words = evt.target.data('name').split('dge_');
+                    setSelectedNode(words[1])
+                  } else {
+                    setSelectedNode(evt.target.data('name'))
+                  }
+                  const orig_num = evt.target.data('FRS')
+                  const rounded_num = Math.round((orig_num + Number.EPSILON) * 100) / 100
+                  setSelectedNodeFRS(rounded_num)
+                });
               }}
               stylesheet={stylesheet}
               layout={layout} 
@@ -828,6 +775,9 @@ const Network = (props) => {
               minZoom={0.5}
               maxZoom={2}
               />
+            {selectedNode != null && <BButton className={classes.btnNodeFC}>{selectedNodeFC}</BButton>}
+            {selectedNode != null && <BButton className={classes.btnNodeN}>{selectedNode}</BButton>}
+            {selectedNode != null && <BButton className={classes.btnNodeFRS}>{'FRS: '}{selectedNodeFRS}</BButton>}
             <AButton className={classes.btn2} onClick={decreaseHandler}>↑</AButton>
             <AButton className={classes.btn} onClick={largehandler}>↓</AButton>
         </div>       

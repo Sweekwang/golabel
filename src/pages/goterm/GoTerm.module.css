@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+.networkP {
+    margin-top: 5px; 
+    margin-bottom: 20px;
+}
+
 .featureH2{
     margin: 0;
     padding-top: 80px;
