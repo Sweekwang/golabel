@@ -35,7 +35,7 @@ const Download = () => {
 
                     <div className={classes.row}>
                         <p className={classes.row1}>Others Model</p>
-                        <p className={classes.row2}>All trained models include job, agi and tti<p>
+                        <p className={classes.row2}>All trained models include job, agi and tti</p>
                         <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/other_model.zip">Download (1.68 GB)</a></p>
                     </div>
 
