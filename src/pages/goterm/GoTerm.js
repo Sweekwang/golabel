@@ -32,7 +32,7 @@ const GoTerm = () => {
     const data = { labels: goId };
     //console.log(data);
 
-    fetch('http://127.0.0.1:5000/api/go', {
+    fetch('https://go-label-316405.oa.r.appspot.com/api/v2/go', {
       method: 'POST',
       body: JSON.stringify(data),
       mode: 'cors',
