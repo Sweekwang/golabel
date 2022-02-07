@@ -159,7 +159,7 @@ const Features = () => {
                             } else if (name.includes("go_GO")) {
                                 name = "GO:" + name.slice(6);
                             }
-                            return <a href={"./goterm/" + name} rel="nofollow"><label for={name}>{name}</label></a>
+                            return <p><label for={name}>{name}</label></p>
                         }},
                         {field:"description",title:"Description",filtering:false},
                         {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}

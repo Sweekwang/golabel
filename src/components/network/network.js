@@ -590,7 +590,7 @@ const Network = (props) => {
               <MenuItem onClick={() => downloadPng(ext_cy, 'graphml')}>graphml</MenuItem>
               <MenuItem onClick={() => downloadPng(ext_cy, 'json')}>json</MenuItem>
           </Menu>
-          <Box width={200}>
+          {/* <Box width={200}>
             <span>Edge filter</span>
             <Slider
               sx={{
@@ -609,7 +609,7 @@ const Network = (props) => {
               valueLabelDisplay="auto" 
               onChange={(_, newValue) => edgeWeightFilter(ext_cy, newValue)}
             /> 
-          </Box>
+          </Box> */}
         </div>
         {changeNode && <div className={classes.colorContainer}>
           <div className={classes.colorContainerItem}>
