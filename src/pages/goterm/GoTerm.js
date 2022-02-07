@@ -24,7 +24,10 @@ const GoTerm = () => {
   const [network, setNetwork] = useState([]);
 
   const params = useParams();
-  const goId = params.goId.replace(/\s+/g, '');
+  // Probably didn't need to replace an empty string by _ here, to get it to parse
+  // search terms with spaces probably, since doing it in home.js is sufficient, but just did it so
+  // that its less confusing
+  const goId = params.goId.replace(/\s+/g, '_');
   window.scrollTo(0, 0);
 
   // Get data from database

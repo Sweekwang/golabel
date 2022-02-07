@@ -22,9 +22,10 @@ const Home = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        const enteredValue = inputRef.current.value.replace(/\s+/g, '');
+        var enteredValue = inputRef.current.value.replace(/\s+/g, '_');
         console.log(enteredValue)
         if (enteredValue !== ''){
+            enteredValue = encodeURIComponent(enteredValue);
             history.push('/golabel/goterm/'+ enteredValue);
         }
     
