@@ -86,6 +86,10 @@ const Network = (props) => {
   // Egde Color and Weight Filter
   let [edgeFilter, setEdgeFilter] = useState(0);
   let [defaultEdge, setdefaultEdge] = useState("rgb(132,132,132)");
+  let [pos, setpos] = useState("rgb(255,0,0)");
+  let [neg, setneg] = useState("rgb(0,0,255)");
+  let [noEffect, setnoEffect] = useState("rgb(132,132,132)");
+  let [notApplicable, setnotApplicable] = useState("rgb(132,132,132)");
 
       const stylesheet = [
         {
@@ -318,6 +322,26 @@ const Network = (props) => {
             "font-weight" : "normal",
             "line-style" : "solid",
             "font-size" : 10
+          }
+        }, {
+          "selector" : "edge[frs_status = 'pos']",
+          style : {
+            "line-color" : pos
+          }
+        }, {
+          "selector" : "edge[frs_status = 'neg']",
+          style : {
+            "line-color" : neg
+          }
+        }, {
+          "selector" : "edge[frs_status = 'no_effect']",
+          style : {
+            "line-color" : noEffect
+          }
+        }, {
+          "selector" : "edge[frs_status = 'not_applicable']",
+          style : {
+            "line-color" : notApplicable
           }
         }
       ];
