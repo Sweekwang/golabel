@@ -22,11 +22,18 @@ const Home = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        // Ensures proper URL encoding
         var enteredValue = inputRef.current.value.replace(/\s+/g, '_');
-        console.log(enteredValue)
-        if (enteredValue !== ''){
-            enteredValue = encodeURIComponent(enteredValue);
+        //console.log(enteredValue)
+        if (enteredValue.startsWith("GO:")) {
             history.push('/golabel/goterm/'+ enteredValue);
+        }
+        else if (enteredValue !== '') {
+            // Double encoding since history decodes it once, which messes up my url
+            enteredValue = encodeURIComponent(encodeURIComponent(enteredValue));
+            console.log(enteredValue)
+            history.push('/golabel/goterm/'+ enteredValue);
+            console.log(history)
         }
     
     };

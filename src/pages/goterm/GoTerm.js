@@ -27,7 +27,17 @@ const GoTerm = () => {
   // Probably didn't need to replace an empty string by _ here, to get it to parse
   // search terms with spaces probably, since doing it in home.js is sufficient, but just did it so
   // that its less confusing
-  const goId = params.goId.replace(/\s+/g, '_');
+
+  // This code block is to ensure proper URL decoding when page is refreshed in browser 
+  var goId = params.goId.replace(/\s+/g, '_');
+  //console.log(goId);
+  if (goId.includes('%_')) {
+   // Do nothing 
+  } else {
+    goId = decodeURI(goId);
+  };
+  //console.log('after goterm decoding');
+  //console.log(goId);
   window.scrollTo(0, 0);
 
   // Get data from database
