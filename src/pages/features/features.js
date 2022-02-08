@@ -154,12 +154,18 @@ const Features = () => {
                         },
                         {field:"feature",title:"Feature Name",filtering:false,render:rowData=>{
                             var name = rowData.feature;
+                            var disp_name = name;
                             if(name.includes("dge_")) {
                                 name = name.slice(4);
                             } else if (name.includes("go_GO")) {
                                 name = "GO:" + name.slice(6);
+                            } else if (name.includes("_")){
+                                name = name.replace(/\s+/g, '_');
+                                disp_name = name;
+                                name = encodeURIComponent(name);
                             }
-                            return <p><label for={name}>{name}</label></p>
+                            console.log(name)
+                            return <a href={"./goterm/" + name} rel="nofollow">{disp_name}</a>
                         }},
                         {field:"description",title:"Description",filtering:false},
                         {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
