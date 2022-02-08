@@ -37,7 +37,7 @@ const GoTerm = () => {
     goId = decodeURI(goId);
   };
   //console.log('after goterm decoding');
-  //console.log(goId);
+  console.log(goId);
   window.scrollTo(0, 0);
 
   // Get data from database
@@ -125,6 +125,14 @@ useEffect(() => {
   )
 },[])
 
+// Sets condition to determine if OOB F1 or R^2 is displayed
+if (goId.startsWith('GO:') || goId.startsWith('E-GEOD') || goId.startsWith('E-MTAB') || goId.startsWith('dit_') 
+  || goId.startsWith('sin_') || goId.startsWith('tan_') || goId.startsWith('pid_') || goId.startsWith('cid_')
+  || goId.startsWith('tti_') || goId.startsWith('agi_') || goId.startsWith('hom_') || goId.startsWith('gbm_')) {
+    var metric = true;
+  } else{
+    var metric = false;
+  }
 
   return (
     <MainLayout>
@@ -135,7 +143,10 @@ useEffect(() => {
             <p>Term:</p>
             <h1>{goId}</h1>
             <p><b>Description</b>: {labelDescrtiopn}</p>
-            <p><b>oob_f1</b>: {oob_f1}</p>
+            <p>
+              {metric ? <b>Out-of-bag (OOB) F1</b> : <b>Out-of-bag (OOB) R<sup>2</sup></b>}
+              : {oob_f1} 
+            </p>
           </div>
           <Fragment>
               <div>
