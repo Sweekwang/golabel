@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/golabel/static/css/main.587ebfde.chunk.css",
-    "main.js": "/golabel/static/js/main.1d396c34.chunk.js",
-    "main.js.map": "/golabel/static/js/main.1d396c34.chunk.js.map",
-    "runtime-main.js": "/golabel/static/js/runtime-main.2cdb85f5.js",
-    "runtime-main.js.map": "/golabel/static/js/runtime-main.2cdb85f5.js.map",
+    "main.js": "/golabel/static/js/main.191e129a.chunk.js",
+    "main.js.map": "/golabel/static/js/main.191e129a.chunk.js.map",
+    "runtime-main.js": "/golabel/static/js/runtime-main.867e5d66.js",
+    "runtime-main.js.map": "/golabel/static/js/runtime-main.867e5d66.js.map",
     "static/css/2.f66d3d99.chunk.css": "/golabel/static/css/2.f66d3d99.chunk.css",
-    "static/js/2.879000fc.chunk.js": "/golabel/static/js/2.879000fc.chunk.js",
-    "static/js/2.879000fc.chunk.js.map": "/golabel/static/js/2.879000fc.chunk.js.map",
-    "static/js/3.c896b2b5.chunk.js": "/golabel/static/js/3.c896b2b5.chunk.js",
-    "static/js/3.c896b2b5.chunk.js.map": "/golabel/static/js/3.c896b2b5.chunk.js.map",
+    "static/js/2.47130743.chunk.js": "/golabel/static/js/2.47130743.chunk.js",
+    "static/js/2.47130743.chunk.js.map": "/golabel/static/js/2.47130743.chunk.js.map",
+    "static/js/3.5fbbeb3a.chunk.js": "/golabel/static/js/3.5fbbeb3a.chunk.js",
+    "static/js/3.5fbbeb3a.chunk.js.map": "/golabel/static/js/3.5fbbeb3a.chunk.js.map",
     "index.html": "/golabel/index.html",
     "static/css/2.f66d3d99.chunk.css.map": "/golabel/static/css/2.f66d3d99.chunk.css.map",
     "static/css/main.587ebfde.chunk.css.map": "/golabel/static/css/main.587ebfde.chunk.css.map",
-    "static/js/2.879000fc.chunk.js.LICENSE.txt": "/golabel/static/js/2.879000fc.chunk.js.LICENSE.txt",
+    "static/js/2.47130743.chunk.js.LICENSE.txt": "/golabel/static/js/2.47130743.chunk.js.LICENSE.txt",
     "static/media/contact.c83d3199.svg": "/golabel/static/media/contact.c83d3199.svg",
     "static/media/jonathan.e696db58.jpeg": "/golabel/static/media/jonathan.e696db58.jpeg",
     "static/media/learning.6843d173.png": "/golabel/static/media/learning.6843d173.png",
@@ -23,10 +23,10 @@
     "static/media/sweekwang.b09ae5e4.jpeg": "/golabel/static/media/sweekwang.b09ae5e4.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2cdb85f5.js",
+    "static/js/runtime-main.867e5d66.js",
     "static/css/2.f66d3d99.chunk.css",
-    "static/js/2.879000fc.chunk.js",
+    "static/js/2.47130743.chunk.js",
     "static/css/main.587ebfde.chunk.css",
-    "static/js/main.1d396c34.chunk.js"
+    "static/js/main.191e129a.chunk.js"
   ]
 }
