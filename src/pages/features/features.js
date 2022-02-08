@@ -165,7 +165,7 @@ const Features = () => {
                                 name = encodeURIComponent(name);
                             }
                             console.log(name)
-                            return <a href={"./goterm/" + name} rel="nofollow">{disp_name}</a>
+                            return <a href={"/golabel/goterm/" + name} rel="nofollow">{disp_name}</a>
                         }},
                         {field:"description",title:"Description",filtering:false},
                         {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
