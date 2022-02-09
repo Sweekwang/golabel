@@ -163,11 +163,9 @@ const Features = () => {
                             } else if (name.includes("_")){
                                 name = name.replace(/\s+/g, '_');
                                 disp_name = name;
-                                name = encodeURIComponent(name);
+                                name = encodeURIComponent(encodeURIComponent(name));
                             }
-                            console.log(name)
-                            {/*<Link to="/golabel/goterm/" + name>{disp_name}</Link>*/}
-                            {/*<a href={"/golabel/goterm/" + name} rel="nofollow">{disp_name}</a>*/}
+                            {/*console.log(name)*/}
                             return <Link to={"/golabel/goterm/" + name}>{disp_name}</Link>
                         }},
                         {field:"description",title:"Description",filtering:false},
