@@ -6,6 +6,7 @@ import Layout from '../../components/layout/componentLayout/Layout';
 import AButton from '../../components/button/aButton';
 import { useEffect, useState } from 'react';
 import { saveAs } from 'file-saver';
+import { Link } from "react-router-dom";
 
 import MaterialTable, { MTableToolbar } from "@material-table/core";
 
@@ -165,7 +166,9 @@ const Features = () => {
                                 name = encodeURIComponent(name);
                             }
                             console.log(name)
-                            return <a href={"/golabel/goterm/" + name} rel="nofollow">{disp_name}</a>
+                            {/*<Link to="/golabel/goterm/" + name>{disp_name}</Link>*/}
+                            {/*<a href={"/golabel/goterm/" + name} rel="nofollow">{disp_name}</a>*/}
+                            return <Link to={"/golabel/goterm/" + name}>{disp_name}</Link>
                         }},
                         {field:"description",title:"Description",filtering:false},
                         {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
