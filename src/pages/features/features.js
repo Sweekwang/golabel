@@ -43,30 +43,21 @@ const Features = () => {
         e.preventDefault();
 
         downloadList.forEach(function (e) {
-            let url = "";
-
-            if (e.includes('GO')) {
-                url = 'https://storage.cloud.google.com/go_model/GO' + e.split(':')[1]; 
-            } else if (e.includes('MTAB')){
-                url = 'https://storage.cloud.google.com/mtab_model/' + e; 
-            } else if (e.includes('GEOD')){
-                url = 'https://storage.cloud.google.com/geod_model/' + e; 
-            } else if (e.includes('tti')){
-                url = 'https://storage.cloud.google.com/tti_model/' + e;  
-            } else if (e.includes('agi') || e.includes('cid') || e.includes('dit') || e.includes('gbm') || e.includes('hom') || e.includes('pid') ){
-                url = 'https://storage.cloud.google.com/agi_model/' + e;  // agi, cid, dit, gbm, hom, pid.
-            } else if (e.includes('cin') || e.includes('pep') || e.includes('pfa') || e.includes('ttr') ){
-                url = 'https://storage.cloud.google.com/job_model/' + e;  // cin, pep, pfa, ttr
-            }
-            
-            if (url !== "") {
-                fetch(e.download)                  
-                .then(res => res.blob())                  
-                .then(blob => {     
-                    console.log(e);       
-                     saveAs(blob, e+".pkl");                
-                });    
-            }        
+            const data = { labels: e };
+            fetch('https://go-label-316405.oa.r.appspot.com/api/v2m/go', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                mode: 'cors',
+                headers: {
+                    'content-type': 'application/json',
+                    'Access-Control-Allow-Origin':'*'
+                },
+            })
+                .then((response) => response.blob())
+                .then(blob => {
+                    console.log(blob)
+                    saveAs(blob, e+".pkl");
+                })
        });
     };
 
@@ -85,11 +76,12 @@ const Features = () => {
             <Layout className={classes.layout}>
                 <h1>Abraidopsis Features</h1>
                 <p>
-                   The model can be downloaded by click on the checkbox and click on the download button. If 
-                   you want to download a bundle of model. It is recommended to go <a href="./download">download</a>.
-                   <i>(<b>Ensure that you have allowed mutiple files download</b>)</i>
+                   The model can be downloaded by clicking on the checkbox and then the download button. Please allow 
+                   for a few seconds for the downloading. If you want to download a bundle of models, it is recommended 
+                   to go to <a href="./download">Download</a>.
+                   <i>(<b>Ensure that you have allowed your browser to download mutiple files</b>)</i>. Pickled models can be opened using the python joblib library
+                   (<a href="https://scikit-learn.org/stable/modules/model_persistence.html">https://scikit-learn.org/stable/modules/model_persistence.html</a>).
                 </p>
-                <p><i>Only features with an out-of-nag (OOB) F1/R<sup>2</sup> score of &gt;= 0.4 will be shown in a network with their first neighbours.</i></p>
                 <br/>
                 <AButton onClick={downloadHandler}>
                     Download Files
