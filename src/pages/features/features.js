@@ -78,8 +78,8 @@ const Features = () => {
                 <p>
                    The model can be downloaded by clicking on the checkbox and then the download button. Please allow 
                    for a few seconds for the downloading. If you want to download a bundle of models, it is recommended 
-                   to go to <a href="./download">Download</a>.
-                   <i>(<b>Ensure that you have allowed your browser to download mutiple files</b>)</i>. Pickled models can be opened using the python joblib library
+                   to go to <a href="./download">Download</a>. <i>(<b>Ensure that you have allowed your browser to download mutiple files</b>)</i>. Pickled 
+                   models can be opened using the python joblib library
                    (<a href="https://scikit-learn.org/stable/modules/model_persistence.html">https://scikit-learn.org/stable/modules/model_persistence.html</a>).
                 </p>
                 <br/>
