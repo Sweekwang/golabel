@@ -91,6 +91,6 @@ td:nth-child(1) {
     padding: 6px 12px;
 }
 
-a {
+.addHyperlink {
     color: blue;
 }
