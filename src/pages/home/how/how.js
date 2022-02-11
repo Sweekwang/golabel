@@ -22,7 +22,7 @@ const How = () => {
                         <img src={Search} alt="info"/> <br/>
                         Search.</h3>
                     <p>
-                        Search by GO terms (e.g GO:0000003) and other <i>A. thailiana</i> feature names above. GO terms (prefix is 'go_') and 
+                        Search by Gene Ontology (GO) terms (e.g GO:0000003) and other <i>A. thailiana</i> feature names above. GO terms (prefix is 'go_') and 
                         Differential gene expression (DGE) features (prefix is 'dge_') need to be searched without their prefix.&nbsp; 
                         <a>Click Here</a> to find out the list of abraidopsis features. When a feature is searched in the database, the results&nbsp;
                         show a network and feature information.
