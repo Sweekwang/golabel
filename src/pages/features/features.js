@@ -161,7 +161,7 @@ const Features = () => {
                             return <Link to={"/golabel/goterm/" + name}>{disp_name}</Link>
                         }},
                         {field:"description",title:"Description",filtering:false},
-                        {field:"",title:"Download",filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
+                        {field:"",title:"Download", filtering:false,render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
                     ]}
                     options={{
                         filtering:true,

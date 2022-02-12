@@ -87,6 +87,24 @@ td:nth-child(1) {
     max-width: none;
 }
 
+th:first-child, td:first-child {
+    max-width: 200px;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    max-width: 220px;
+    overflow-wrap: break-word;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    max-width: 380px;
+    overflow-wrap: break-word;
+}
+
+th:nth-child(4), td:nth-child(4) {
+    max-width: 1px;
+}
+
 .fileSelected{
     padding: 6px 12px;
 }
