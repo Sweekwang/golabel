@@ -132,7 +132,7 @@ const Features = () => {
                             "GO_biological_process terms, experimental annotation (go)":"GO_biological_process terms, experimental annotation (go)",
                             "GO_cellular_component terms, experimental annotation (go)":"GO_cellular_component terms, experimental annotation (go)",
                             "GO_molecular_function terms, experimental annotation (go)":"GO_molecular_function terms, experimental annotation (go)",
-                            "Homologs in other speceies (hom)":"Homologs in other speceies (hom)",
+                            "Homologs in other species (hom)":"Homologs in other species (hom)",
                             "Phylostrata (phy)":"Phylostrata (phy)",
                             "Protein domain (mob)":"Protein domain (mob)",
                             "Protein domain (num)":"Protein domain (num)",
