@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/golabel/static/css/main.d9945dce.chunk.css",
-    "main.js": "/golabel/static/js/main.a86a0f17.chunk.js",
-    "main.js.map": "/golabel/static/js/main.a86a0f17.chunk.js.map",
-    "runtime-main.js": "/golabel/static/js/runtime-main.867e5d66.js",
-    "runtime-main.js.map": "/golabel/static/js/runtime-main.867e5d66.js.map",
+    "main.css": "/golabel/static/css/main.c36a2876.chunk.css",
+    "main.js": "/golabel/static/js/main.2a179cc8.chunk.js",
+    "main.js.map": "/golabel/static/js/main.2a179cc8.chunk.js.map",
+    "runtime-main.js": "/golabel/static/js/runtime-main.9acb9afe.js",
+    "runtime-main.js.map": "/golabel/static/js/runtime-main.9acb9afe.js.map",
     "static/css/2.f66d3d99.chunk.css": "/golabel/static/css/2.f66d3d99.chunk.css",
-    "static/js/2.4e4de1fc.chunk.js": "/golabel/static/js/2.4e4de1fc.chunk.js",
-    "static/js/2.4e4de1fc.chunk.js.map": "/golabel/static/js/2.4e4de1fc.chunk.js.map",
-    "static/js/3.5fbbeb3a.chunk.js": "/golabel/static/js/3.5fbbeb3a.chunk.js",
-    "static/js/3.5fbbeb3a.chunk.js.map": "/golabel/static/js/3.5fbbeb3a.chunk.js.map",
+    "static/js/2.0d7e195b.chunk.js": "/golabel/static/js/2.0d7e195b.chunk.js",
+    "static/js/2.0d7e195b.chunk.js.map": "/golabel/static/js/2.0d7e195b.chunk.js.map",
+    "static/js/3.26caf034.chunk.js": "/golabel/static/js/3.26caf034.chunk.js",
+    "static/js/3.26caf034.chunk.js.map": "/golabel/static/js/3.26caf034.chunk.js.map",
     "index.html": "/golabel/index.html",
     "static/css/2.f66d3d99.chunk.css.map": "/golabel/static/css/2.f66d3d99.chunk.css.map",
-    "static/css/main.d9945dce.chunk.css.map": "/golabel/static/css/main.d9945dce.chunk.css.map",
-    "static/js/2.4e4de1fc.chunk.js.LICENSE.txt": "/golabel/static/js/2.4e4de1fc.chunk.js.LICENSE.txt",
+    "static/css/main.c36a2876.chunk.css.map": "/golabel/static/css/main.c36a2876.chunk.css.map",
+    "static/js/2.0d7e195b.chunk.js.LICENSE.txt": "/golabel/static/js/2.0d7e195b.chunk.js.LICENSE.txt",
     "static/media/contact.c83d3199.svg": "/golabel/static/media/contact.c83d3199.svg",
     "static/media/jonathan.e696db58.jpeg": "/golabel/static/media/jonathan.e696db58.jpeg",
     "static/media/learning.6843d173.png": "/golabel/static/media/learning.6843d173.png",
@@ -23,10 +23,10 @@
     "static/media/sweekwang.b09ae5e4.jpeg": "/golabel/static/media/sweekwang.b09ae5e4.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.867e5d66.js",
+    "static/js/runtime-main.9acb9afe.js",
     "static/css/2.f66d3d99.chunk.css",
-    "static/js/2.4e4de1fc.chunk.js",
-    "static/css/main.d9945dce.chunk.css",
-    "static/js/main.a86a0f17.chunk.js"
+    "static/js/2.0d7e195b.chunk.js",
+    "static/css/main.c36a2876.chunk.css",
+    "static/js/main.2a179cc8.chunk.js"
   ]
 }
