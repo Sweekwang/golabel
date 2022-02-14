@@ -102,7 +102,7 @@ th:nth-child(3), td:nth-child(3) {
 }
 
 th:nth-child(4), td:nth-child(4) {
-    max-width: 1px;
+    max-width: 250px;
 }
 
 .fileSelected{

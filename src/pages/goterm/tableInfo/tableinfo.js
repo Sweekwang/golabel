@@ -4,6 +4,7 @@ import ReactPDF, { Page, Text, View, Document, StyleSheet, PDFDownloadLink} from
 import classes from '../GoTerm.module.css';
 import Tooltips from '../../../components/tooltips/tooltips';
 import Layout from '../../../components/layout/componentLayout/Layout';
+import { typographyClasses } from '@mui/material';
 
 const TableInfo = (props) => {
   // Props:
@@ -30,8 +31,33 @@ const TableInfo = (props) => {
 
   function naiveRound(num, decimalPlaces = 0) {
     var p = Math.pow(10, decimalPlaces);
-    return Math.round(num * p) / p;
-}
+    var new_p = Math.round(num * p) / p;
+    if (new_p < 0.01) {
+      new_p = '< 0.01';
+    }
+    return new_p
+  }
+
+  // Rounding function written by JN
+  function jnRound(num) {
+    if (typeof(num)) {
+      
+    }
+    var new_num = Math.round((num + Number.EPSILON) * 100) / 100;
+
+
+    return new_num
+  }
+
+  function preprocess(one_feature) {
+    if (one_feature.startsWith('go_')) {
+      var preprocessed = one_feature.split('_')[1];
+    }
+    else {
+      var preprocessed = one_feature;
+    }
+    return preprocessed;
+  }
 
 
   // PDF Generator
@@ -140,7 +166,7 @@ const TableInfo = (props) => {
               <View style={styles.row} >
                 <Text style={[styles.no,styles.rowText]}>{index2 + 1}</Text>
                 <Text style={[styles.type,styles.rowText]}>{selectedFeaturesType[index2]}</Text>
-                <Text style={[styles.id,styles.rowText]}>{selectedFeatures[index2]}</Text>
+                <Text style={[styles.id,styles.rowText]}>{preprocess(selectedFeatures[index2])}</Text>
                 <Text style={[styles.description,styles.rowText]}>{selectedFeaturesDescription[index2]}</Text>
                 <Text style={[styles.feature,styles.rowText]}>{naiveRound(selectedScores[index2], 2)}</Text>
                 <Text style={[styles.frs]}>{selectedFRS[index2]}</Text>
@@ -188,13 +214,13 @@ const TableInfo = (props) => {
         <table>
           <tr>
             <th>No</th>
-            <th>
+            <th className={classes.category}>
               Category<Tooltips>Category of feature</Tooltips>
             </th>
             <th>
               Name<Tooltips>Name of feature</Tooltips>
             </th>
-            <th>
+            <th className={classes.fi}>
               Description<Tooltips>Detailed description of feature</Tooltips>
             </th>
             <th>
@@ -210,7 +236,7 @@ const TableInfo = (props) => {
               <tr>
                 <td>{index2 + 1}</td>
                 <td>{selectedFeaturesType[index2]}</td>
-                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${selectedFeatures[index2]}`}>{selectedFeatures[index2]}</a></td>
+                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${preprocess(selectedFeatures[index2])}`}>{preprocess(selectedFeatures[index2])}</a></td>
                 <td className={classes.capitalize}>
                   {selectedFeaturesDescription[index2]}
                 </td>

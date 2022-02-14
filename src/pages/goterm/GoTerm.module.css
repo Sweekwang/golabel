@@ -70,6 +70,14 @@
     
 }
 
+.category{
+    min-width: 200px;
+}
+
+.fi{
+    max-width: 380px
+}
+
 .frs{
     max-width: 150px;
 }
