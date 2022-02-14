@@ -40,13 +40,13 @@ const TableInfo = (props) => {
 
   // Rounding function written by JN
   function jnRound(num) {
-    if (typeof(num)) {
-      
+    if (num == '-') {
+      var new_value = 'Not in network';
     }
-    var new_num = Math.round((num + Number.EPSILON) * 100) / 100;
-
-
-    return new_num
+    else {
+      var new_value = Math.round((Number(num) + Number.EPSILON) * 100) / 100;
+    }
+    return new_value
   }
 
   function preprocess(one_feature) {
@@ -169,7 +169,7 @@ const TableInfo = (props) => {
                 <Text style={[styles.id,styles.rowText]}>{preprocess(selectedFeatures[index2])}</Text>
                 <Text style={[styles.description,styles.rowText]}>{selectedFeaturesDescription[index2]}</Text>
                 <Text style={[styles.feature,styles.rowText]}>{naiveRound(selectedScores[index2], 2)}</Text>
-                <Text style={[styles.frs]}>{selectedFRS[index2]}</Text>
+                <Text style={[styles.frs]}>{jnRound(selectedFRS[index2])}</Text>
               </View>
               )
             )}
@@ -241,7 +241,7 @@ const TableInfo = (props) => {
                   {selectedFeaturesDescription[index2]}
                 </td>
                 <td>{naiveRound(selectedScores[index2], 2)}</td>
-                <td>{selectedFRS[index2]}</td>
+                <td>{jnRound(selectedFRS[index2])}</td>
               </tr>
             )
           )}
