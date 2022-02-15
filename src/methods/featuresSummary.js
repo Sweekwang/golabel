@@ -1,5 +1,5 @@
 
-class FeaturesController {
+class FeaturesSummaryController {
     static retrieveFeaturesInformation = async () => {
         const response = await fetch('https://sweekwang.github.io/golabel/summariseData.json');
         //console.log(response);
@@ -15,4 +15,4 @@ class FeaturesController {
     };
 }
 
-export default FeaturesController;
+export default FeaturesSummaryController;

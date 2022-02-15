@@ -1,5 +1,6 @@
 import classes from './how.module.css';
 
+import FeaturesSummaryController from '../../../methods/features';
 import Layout from '../../../components/layout/componentLayout/Layout';
 import Header from '../../../components/header/header';
 import Like from '../../../assets/like.svg';
