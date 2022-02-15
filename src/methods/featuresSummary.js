@@ -8,6 +8,7 @@ class FeaturesSummaryController {
         data.forEach((dataPoint) => {
             dataPoint.id = data.indexOf(dataPoint)
           })
+        //console.log('summary')
         //console.log(data);
         return new Promise((resolve, rejected) => {
             resolve(data)

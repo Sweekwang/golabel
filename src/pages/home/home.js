@@ -61,7 +61,7 @@ const Home = () => {
             <Layout className={classes.searchContainer}>
                 <form className={classes.searchForm} onSubmit={submitHandler}>
                     <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> <br/>
-                    <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0000003, E-GEO-39217_1a_up" ref ={inputRef}></input>
+                    <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0006950, E-MTAB-4226_1a_up" ref ={inputRef}></input>
                     <datalist id="list">
                         {list.map((currentList) => {
                             var name = currentList.feature;

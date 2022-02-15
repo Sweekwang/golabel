@@ -1,5 +1,5 @@
 .how{
-    padding: 120px 12px;
+    padding: 100px 12px;
 }
 
 .header{
@@ -85,4 +85,8 @@
         margin: 0 auto;
     }
 
+}
+
+.summaryTable{
+    margin-bottom: 50px;
 }
