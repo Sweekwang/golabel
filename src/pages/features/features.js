@@ -22,53 +22,6 @@ const Features = () => {
             });
     }, []);
 
-    const featureClicked = (e) => {
-        const isCheck = e.target.checked;
-        let feature = e.target.name;
-
-        if(feature.includes("dge_")) {
-            feature = feature.slice(4);
-        } else if (feature.includes("go_")) {
-            feature = feature.slice(3);
-        }
-
-        if (isCheck) {
-            setDownloadList((prevState) => [...prevState, feature]);
-        } else {
-            setDownloadList((prevState) => prevState.filter(f => f !== feature));
-        }
-    };
-
-    const downloadHandler = (e) => {
-        e.preventDefault();
-
-        downloadList.forEach(function (e) {
-            const data = { labels: e };
-            fetch('https://go-label-316405.oa.r.appspot.com/api/v2m/go', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                mode: 'cors',
-                headers: {
-                    'content-type': 'application/json',
-                    'Access-Control-Allow-Origin':'*'
-                },
-            })
-                .then((response) => response.blob())
-                .then(blob => {
-                    console.log(blob)
-                    saveAs(blob, e+".pkl");
-                })
-       });
-    };
-
-    const sort = () => {
-        console.log('click')
-        setNode((prevState) => {
-            const dataToSort = [...prevState];
-            dataToSort.sort((a,b) => a.category.toLowerCase() < b.category.toLowerCase() ? 1 : -1);
-            return dataToSort;
-        });
-    }
     //node[0]
     //console.log(node);
     return(
@@ -76,28 +29,12 @@ const Features = () => {
             <Layout className={classes.layout}>
                 <h1>Abraidopsis Features</h1>
                 <p>
-                   The model can be downloaded by clicking on the checkbox and then the download button. Please allow 
-                   for a few seconds for the downloading. If you want to download a bundle of models, it is recommended 
-                   to go to <a className={classes.addHyperlink} href="./download">Download</a>. <i>(<b>Ensure that you have allowed your browser to download mutiple files</b>)</i>. Pickled 
+                   To download models, please
+                   go to <a className={classes.addHyperlink} href="./download">Download</a>. Pickled 
                    models can be opened using the python joblib library
                    (<a className={classes.addHyperlink} href="https://scikit-learn.org/stable/modules/model_persistence.html">https://scikit-learn.org/stable/modules/model_persistence.html</a>).
                 </p>
                 <br/>
-                <AButton onClick={downloadHandler}>
-                    Download Files
-                </AButton>
-                <p className={classes.fileSelected}><b>File Selected: </b>
-                    {(downloadList.length ===0) ? "None" : 
-                    downloadList.map((value, index) => {
-                        if (index === downloadList.length - 1) {
-                            return (value)
-                        } else {
-                            return (value + ", ")
-                        }
-                    })
-                    }
-                
-                </p>
 
                 <form><MaterialTable
                     data = {node}
@@ -160,10 +97,7 @@ const Features = () => {
                             {/*console.log(name)*/}
                             return <Link to={"/golabel/goterm/" + name}>{disp_name}</Link>
                         }},
-                        {field:"description",title:"Description",filtering:false},
-                        {field:"",title:"Download", filtering:false, 
-                        width: "100%",
-                        render:rowData=><input type="checkbox" id={rowData.feature} name={rowData.feature} value={rowData.feature} onClick={featureClicked}/>}
+                        {field:"description",title:"Description",filtering:false}
                     ]}
                     options={{
                         filtering:true,
