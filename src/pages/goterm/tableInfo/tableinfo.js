@@ -237,7 +237,7 @@ const TableInfo = (props) => {
                 <td>{index2 + 1}</td>
                 <td>{selectedFeaturesType[index2]}</td>
                 <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${preprocess(selectedFeatures[index2])}`}>{preprocess(selectedFeatures[index2])}</a></td>
-                <td className={classes.capitalize}>
+                <td>
                   {selectedFeaturesDescription[index2]}
                 </td>
                 <td>{naiveRound(selectedScores[index2], 2)}</td>

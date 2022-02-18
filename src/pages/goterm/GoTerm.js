@@ -73,10 +73,10 @@ const GoTerm = () => {
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
 
-        // Checking FRS
-        //console.log("FRS");
-        //console.log(FRS);
-
+        // Checking
+        console.log("feat desc");
+        console.log(featuresDescription);
+        
         const network = [...data.network.start, ...data.network.end];
         console.log("Network")
         console.log(network);
