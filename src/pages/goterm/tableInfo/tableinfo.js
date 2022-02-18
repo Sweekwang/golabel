@@ -53,6 +53,9 @@ const TableInfo = (props) => {
     if (one_feature.startsWith('go_')) {
       var preprocessed = one_feature.split('_')[1];
     }
+    else if (one_feature.startsWith('dge_')) {
+      var preprocessed = one_feature.split('dge_')[1];
+    }
     else {
       var preprocessed = one_feature;
     }

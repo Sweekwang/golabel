@@ -74,8 +74,8 @@ const GoTerm = () => {
         setoob_f1(data.model.oob_f1);
 
         // Checking
-        console.log("feat desc");
-        console.log(featuresDescription);
+        //console.log("feat desc");
+        //console.log(featuresDescription);
         
         const network = [...data.network.start, ...data.network.end];
         console.log("Network")
