@@ -16,6 +16,7 @@ import ContactDiv from './contact/contact'
 
 const Home = () => {
     const [list,setList] = useState([]);
+    const [isInputActive, setIsInputActive] = useState(false)
     const history = useHistory();
 
     const inputRef = useRef(null);
@@ -61,7 +62,11 @@ const Home = () => {
             <Layout className={classes.searchContainer}>
                 <form className={classes.searchForm} onSubmit={submitHandler}>
                     <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> <br/>
-                    <input className={classes.searchInput} list="list" type='text' id='terms' name='terms' placeholder="e.g. GO:0006950, E-MTAB-4226_1a_up" ref ={inputRef}></input>
+                    <div>
+                      <input onFocus={() => setIsInputActive(true)} onBlur={() => setIsInputActive(false)} className={classes.searchInput} list="list" type='text' id='terms' name='terms' ref ={inputRef}></input>
+                      <input className={classes.searchSubmit} type="submit" value="Submit"></input>
+                      <a style={{visibility: isInputActive ? 'hidden' : 'visible'}} className={classes.searchClickablePlaceholder} href='#'>e.g. GO:0006950, E-MTAB-4226_1a_up</a>
+                    </div>
                     <datalist id="list">
                         {list.map((currentList) => {
                             var name = currentList.feature;
@@ -78,7 +83,6 @@ const Home = () => {
                         })}
                 
                     </datalist>
-                    <input className={classes.searchSubmit} type="submit" value="Submit"></input>
                 </form>
             </Layout>
             <How/>

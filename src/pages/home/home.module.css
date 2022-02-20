@@ -60,6 +60,19 @@
     color: rgb(132, 132, 132);
 }
 
+.searchClickablePlaceholder {
+  position: absolute;
+  top: 59px;
+  left: 33px;
+  font-size: 19px;
+  color: #666666;
+  font-weight: 450;
+}
+
+.searchClickablePlaceholder:hover{
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1000px) {
     .searchContainer{
         width: 94%;
