@@ -49,6 +49,7 @@ const TableInfo = (props) => {
     return new_value
   }
 
+  // Preprocesses feature name so that urls will work when name is clicked on
   function preprocess(one_feature) {
     if (one_feature.startsWith('go_')) {
       var preprocessed = one_feature.split('_')[1];
@@ -57,7 +58,22 @@ const TableInfo = (props) => {
       var preprocessed = one_feature.split('dge_')[1];
     }
     else {
-      var preprocessed = one_feature;
+      var preprocessed = one_feature.replace(/\s+/g, '_');
+      preprocessed = encodeURIComponent(preprocessed);
+    }
+    return preprocessed;
+  }
+
+  // Similar function as the above, but modified just to make the displayed feature name look nice
+  function preprocess_disp(one_feature) {
+    if (one_feature.startsWith('go_')) {
+      var preprocessed = one_feature.split('_')[1];
+    }
+    else if (one_feature.startsWith('dge_')) {
+      var preprocessed = one_feature.split('dge_')[1];
+    }
+    else {
+      var preprocessed = one_feature.replace(/\s+/g, '_');
     }
     return preprocessed;
   }
@@ -239,7 +255,7 @@ const TableInfo = (props) => {
               <tr>
                 <td>{index2 + 1}</td>
                 <td>{selectedFeaturesType[index2]}</td>
-                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${preprocess(selectedFeatures[index2])}`}>{preprocess(selectedFeatures[index2])}</a></td>
+                <td><a target='_blank' rel = 'noreferrer' href={`/golabel/goterm/${preprocess(selectedFeatures[index2])}`}>{preprocess_disp(selectedFeatures[index2])}</a></td>
                 <td>
                   {selectedFeaturesDescription[index2]}
                 </td>
