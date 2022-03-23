@@ -1,0 +1,2 @@
+id	model_name	oob_r_sq	time_start	time_end
+0	rf	-4.995140177266322e-05	30/06/2021 04:12:56	30/06/2021 04:14:17

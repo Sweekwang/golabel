@@ -1,0 +1,2 @@
+id	model_name	oob_accuracy	oob_f1	oob_precision	oob_recall	time_start	time_end
+0	rf	0.999746233148295	0.9855595667870035	1.0	0.9715302491103203	17/08/2021 22:11:35	17/08/2021 22:13:32
