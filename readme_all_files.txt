@@ -47,6 +47,9 @@ names to their original feature name is given together with this readme file
 mod_class_labels_contf.txt
 - Mapping file which shows which continuous feature name maps to "job_X" in models' file names
 
+network.zip
+- Cytoscape feature importance network file, used to construct the local networks shown in this database
+
 Notes
 .gitignore
 - git ignore file, present in the above folders, can ignore it
