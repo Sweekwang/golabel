@@ -13,7 +13,10 @@ const Download = () => {
         <MainLayout>
             <Layout className={classes.layout}>
                 <h1>Download</h1>
-                <p>To download individual files. Go to <Link>Abraidopsis Features</Link> and selected the files to download.</p>
+                <p>
+                    Trained models, model scores, and feature importance files can be downloaded below, in a zip folder. A readme
+                    file is also provided with further information, and to explain how to use these trained models.
+                </p>
                 <div className={classes.downloadTable}>
                     <div className={classes.header}>
                         <p className={classes.row1}>Name</p>
@@ -22,26 +25,32 @@ const Download = () => {
                     </div>
 
                     <div className={classes.row}>
-                        <p className={classes.row1}>Go Models</p>
-                        <p className={classes.row2}>All trained GO models</p>
-                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/go_model.zip">Download (2.68 GB)</a></p>
+                        <p className={classes.row1}>All Models</p>
+                        <p className={classes.row2}>All trained models</p>
+                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/all_models.zip">Download (2.29 GB)</a></p>
                     </div>
 
                     <div className={classes.row}>
-                        <p className={classes.row1}>DGE Models</p>
-                        <p className={classes.row2}>All trained DGE models</p>
-                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/dge.zip">Download (762.2 MB)</a></p>
+                        <p className={classes.row1}>All Scores</p>
+                        <p className={classes.row2}>All model scores</p>
+                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/all_scores.zip">Download (2.66 MB)</a></p>
                     </div>
 
                     <div className={classes.row}>
-                        <p className={classes.row1}>Others Model</p>
-                        <p className={classes.row2}>All trained models include job, agi and tti</p>
-                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/other_model.zip">Download (1.68 GB)</a></p>
+                        <p className={classes.row1}>All Feature Importances</p>
+                        <p className={classes.row2}>All model feature importance files</p>
+                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/all_fi.zip">Download (1.18 GB)</a></p>
+                    </div>
+
+                    <div className={classes.row}>
+                        <p className={classes.row1}>Readme</p>
+                        <p className={classes.row2}>Readme and additonal information</p>
+                        <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/all_readme.zip">Download (19.6 KB)</a></p>
                     </div>
 
                     <div className={classes.row}>
                         <p className={classes.row1}>Overall network</p>
-                        <p className={classes.row2}><a href="https://cytoscape.org/">Cytoscape</a> file. Overall network of ___. Cytoscape version file is 3.8.2.</p>
+                        <p className={classes.row2}><a href="https://cytoscape.org/">Cytoscape</a> file. Overall network, cytoscape version is 3.8.2.</p>
                         <p className={classes.row3}><a href="https://github.com/Sweekwang/golabel/archive/refs/heads/network.zip">Download (933 KB)</a></p>
                     </div>
 
