@@ -156,7 +156,7 @@ if (goId.startsWith('GO:') || goId.startsWith('E-GEOD') || goId.startsWith('E-MT
           { (network.length > 0) ?
                 <Network 
                   elements={network} 
-                  />: <p>Features is not found in network as it did not meet the OOB F1/R<sup>2</sup> threshold of &gt;= 0.4 to be included in the network</p>
+                  />: <p>Feature is not found in network as it did not meet the OOB F1/R<sup>2</sup> threshold of &gt;= 0.4 to be included in the network</p>
           }
           </Fragment> 
       </Layout>
