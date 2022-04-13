@@ -61,11 +61,21 @@ const Home = () => {
             
             <Layout className={classes.searchContainer}>
                 <form className={classes.searchForm} onSubmit={submitHandler}>
-                    <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> <br/>
+                    <label className={classes.searchLabel} for='terms'>Search (Go Terms):</label> 
                     <div>
-                      <input onFocus={() => setIsInputActive(true)} onBlur={() => setIsInputActive(false)} className={classes.searchInput} list="list" type='text' id='terms' name='terms' ref ={inputRef}></input>
-                      <input className={classes.searchSubmit} type="submit" value="Submit"></input>
-                      <a style={{visibility: isInputActive ? 'hidden' : 'visible'}} className={classes.searchClickablePlaceholder} href='#'>e.g. GO:0006950, E-MTAB-4226_1a_up</a>
+                      <input onFocus={() => setIsInputActive(true)} onBlur={() => setIsInputActive(false)} className={classes.searchInput} list="list" type='text' id='terms' name='terms' ref ={inputRef} />
+                      <input className={classes.searchSubmit} type="submit" value="Submit"/>
+                      <span className={classes.clickablePlaceholderContainer}>
+                        {
+                          !isInputActive && (
+                            <>
+                              <span>eg.</span>
+                              <a href='/golabel/goterm/GO:0006950'>GO:0006950,</a>
+                              <a href='/golabel/goterm/E-MTAB-4226_1a_up'>E-MTAB-4226_1a_up</a>
+                            </>
+                          )
+                        }
+                      </span>
                     </div>
                     <datalist id="list">
                         {list.map((currentList) => {
