@@ -60,13 +60,17 @@
     color: rgb(132, 132, 132);
 }
 
-.searchClickablePlaceholder {
+.clickablePlaceholderContainer {
   position: absolute;
   top: 59px;
   left: 33px;
   font-size: 19px;
   color: #666666;
   font-weight: 450;
+}
+
+.clickablePlaceholderContainer a {
+  margin-left: 5px;
 }
 
 .searchClickablePlaceholder:hover{
