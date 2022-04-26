@@ -91,7 +91,6 @@ const Home = () => {
                                 <option key={name} value={name}/>
                             )
                         })}
-                
                     </datalist>
                 </form>
             </Layout>
