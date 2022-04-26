@@ -70,8 +70,8 @@ const Home = () => {
                           !isInputActive && (
                             <>
                               <span>eg.</span>
-                              <a href='/golabel/goterm/GO:0006950'>GO:0006950,</a>
-                              <a href='/golabel/goterm/E-MTAB-4226_1a_up'>E-MTAB-4226_1a_up</a>
+                              <a href='https://sweekwang.github.io/golabel/goterm/GO:0006950'>GO:0006950,</a>
+                              <a href='https://sweekwang.github.io/golabel/goterm/E-MTAB-4226_1a_up'>E-MTAB-4226_1a_up</a>
                             </>
                           )
                         }
