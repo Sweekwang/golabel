@@ -14,8 +14,10 @@ const Download = () => {
             <Layout className={classes.layout}>
                 <h1>Download</h1>
                 <p>
-                    Trained models, model scores, and feature importance files can be downloaded below, in a zip folder. A readme
+                    Trained models, model scores, and feature importance files can be downloaded below, in a compressed folder. A readme
                     file is also provided with further information, and to explain how to use these trained models.
+
+                    The ML dataset, showing feature values for each gene is also available in a compresssed folder.
                 </p>
                 <div className={classes.downloadTable}>
                     <div className={classes.header}>
@@ -52,6 +54,12 @@ const Download = () => {
                         <p className={classes.row1}>Overall network</p>
                         <p className={classes.row2}><a href="https://cytoscape.org/">Cytoscape</a> file. Overall network, cytoscape version is 3.8.2.</p>
                         <p className={classes.row3}><a href="https://storage.cloud.google.com/zip_data_all/complete_sk.cys">Download (933 KB)</a></p>
+                    </div>
+
+                    <div className={classes.row}>
+                        <p className={classes.row1}>ML dataset</p>
+                        <p className={classes.row2}>All genes with their respective feature values</p>
+                        <p className={classes.row3}><a href="https://storage.cloud.google.com/zip_data_all/ml_dataset.tar.gz">Download (16.5 MB)</a></p>
                     </div>
 
                 </div>
