@@ -151,7 +151,12 @@ if (goId.startsWith('GO:') || goId.startsWith('E-GEOD') || goId.startsWith('E-MT
           <Fragment>
               <div>
                 <h2 className={classes.networkH2}>Network</h2>
-                <p className={classes.networkP}>Click on node to display selected node attributes in the bottom left corner of the window</p>
+                <p className={classes.networkP}>
+                  Click on node to display selected node attributes in the bottom left corner of the window.
+                  Red edges indicate positive association with the target feature, while blue edges indicate negative assocation.
+                  Grey edges indicate association between nodes not involving the target feature.
+                  Thickness of edges is proportionate to edge weight.
+                </p>
               </div>
           { (network.length > 0) ?
                 <Network 
