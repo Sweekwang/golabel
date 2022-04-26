@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+.download{
+    margin-top: 16px;
+    width: 200px;
+}
+
 .networkP {
     margin-top: 5px; 
     margin-bottom: 20px;

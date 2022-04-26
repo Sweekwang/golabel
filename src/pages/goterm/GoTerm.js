@@ -8,6 +8,7 @@ import ErrorBar from '../../components/errorbar/Errorbar';
 import TableInfo from './tableInfo/tableinfo';
 import Network from '../../components/network/network';
 import classes from './GoTerm.module.css'
+import AButton from '../../components/button/aButton';
 
 const GoTerm = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +23,7 @@ const GoTerm = () => {
   const [FRS, setFRS] = useState([]);
   const [oob_f1, setoob_f1] = useState("-");
   const [network, setNetwork] = useState([]);
+    const [modelLink, setModelLink] = useState("");
 
   const params = useParams();
   // Probably didn't need to replace an empty string by _ here, to get it to parse
@@ -72,6 +74,7 @@ const GoTerm = () => {
         setIsLoading(false);
         setLabelDescrtion(data.termsDescription[0]);
         setoob_f1(data.model.oob_f1);
+          setModelLink(data.modelLink)
 
         // Checking
         //console.log("feat desc");
@@ -147,6 +150,10 @@ if (goId.startsWith('GO:') || goId.startsWith('E-GEOD') || goId.startsWith('E-MT
               {metric ? <b>Out-of-bag (OOB) F1</b> : <b>Out-of-bag (OOB) R<sup>2</sup></b>}
               : {oob_f1} 
             </p>
+          
+          <div className={classes.download}>
+          <AButton href={modelLink}>Download Model</AButton>
+          </div>
           </div>
           <Fragment>
               <div>
