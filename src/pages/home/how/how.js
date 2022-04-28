@@ -75,12 +75,18 @@ const How = () => {
                         },
                         {field:"feature",title:"Feature Name",filtering:false,render:rowData=>{
                             var name = rowData.feature;
+                            var disp_name = name;
                             if(name.includes("dge_")) {
                                 name = name.slice(4);
                             } else if (name.includes("go_GO")) {
                                 name = "GO:" + name.slice(6);
+                            } else if (name.includes("_")){
+                                name = name.replace(/\s+/g, '_');
+                                disp_name = name;
+                                name = encodeURIComponent(encodeURIComponent(name));
                             }
-                            return <p>{name}</p>
+                            {/*console.log(name)*/}
+                            return <Link to={"/golabel/goterm/" + name}>{disp_name}</Link>
                         }},
                         {field:"description",title:"Description",filtering:false}
                     ]}
