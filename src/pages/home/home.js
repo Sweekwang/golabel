@@ -53,7 +53,7 @@ const Home = () => {
                 <Particle className={classes.particle}/>
                 <div className={classes.headerItems}>
                     <h1>finder.plant.tools</h1>
-                    <p>A database to explore biological relationships between Arabidopsis thailiana genetic characteristics.</p>
+                    <p>A database to explore biological relationships between <i>Arabidopsis thaliana</i> genetic characteristics.</p>
                     <br/>
                     <AButton href="#how">Learn More</AButton>
                 </div>

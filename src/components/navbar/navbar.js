@@ -38,7 +38,7 @@ const Navbar = () => {
               <a href="/golabel#how">How to use?</a>
             </li>
             <li>
-              <a href="/golabel/features">Abraidopsis Features</a>
+              <a href="/golabel/features">Arabidopsis Features</a>
             </li>
             <li>
               <a href="/golabel/download">Download</a>

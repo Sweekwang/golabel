@@ -4,14 +4,14 @@
   <h3 align="center">finder.plant.tools</h3>
 
   <p align="center">
-  A database to explore biological relationships between Arabidopsis thailiana genetic characteristics. <br/>
+  A database to explore biological relationships between Arabidopsis thaliana genetic characteristics. <br/>
   <a href="https://sweekwang.github.io/golabel/">Website Link</a>
 </p>
 
 <hr/>
 
 # Introduction
-finder.plant.tools is a database to explore biological relationships between Arabidopsis thailiana genetic characteristics. 
+finder.plant.tools is a database to explore biological relationships between Arabidopsis thaliana genetic characteristics. 
 
 # API/Technology used.
 ## Frontend

@@ -103,7 +103,7 @@ const How = () => {
             <div className={classes.header}>
                 <Header src = {Like} className={classes.headerIcon}>Made with Love</Header>
                 <h3>How to use ?</h3>
-                <p>A database to explore biological relationships between <i>Arabidopsis thailiana</i> genetic characteristics. Search using any 
+                <p>A database to explore biological relationships between <i>A. thaliana</i> genetic characteristics. Search using any 
                     feature given in the list of features (link below).</p>
             </div>
             <div className={classes.howItems}>
@@ -112,9 +112,9 @@ const How = () => {
                         <img src={Search} alt="info"/> <br/>
                         Search.</h3>
                     <p>
-                        Search by Gene Ontology (GO) terms (e.g GO:0006950) and other <i>A. thailiana</i> feature names above. GO terms (prefix is 'go_') and 
+                        Search by Gene Ontology (GO) terms (e.g GO:0006950) and other <i>A. thaliana</i> feature names above. GO terms (prefix is 'go_') and 
                         Differential gene expression (DGE) features (prefix is 'dge_') need to be searched without their prefix.&nbsp; 
-                        <Link to="./golabel/features">Click here</Link> to find out the list of abraidopsis features. Examples of search terms, one per feature category, is given in the table&nbsp;
+                        <Link to="./golabel/features">Click here</Link> to find out the list of <i>A. thaliana</i> features. Examples of search terms, one per feature category, is given in the table&nbsp;
                         here. For all features, please click on the link given for the full list. When a feature is searched in the database, the results&nbsp;
                         show trained machine learning model scores, and network and feature information.<br/><br/>
                         The Out-of-bag (OOB) score (model score) is rounded to 2 decimal places, categorical variables are scored using OOB F1 while&nbsp;
